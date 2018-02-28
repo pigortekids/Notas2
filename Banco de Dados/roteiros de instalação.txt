@@ -1,0 +1,4 @@
+https://dev.mysql.com/doc/refman/5.7/en/windows-installation.html
+http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html
+https://www.postgresql.org/download/windows/
+https://www.microsoft.com/pt-br/download/details.aspx?id=42299
