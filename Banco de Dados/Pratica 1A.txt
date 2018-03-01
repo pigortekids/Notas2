@@ -1,0 +1,30 @@
+1- services.msc
+2- mysql -uroot -p
+3- alter user'root'@'localhost' identified by '123';
+4- show databases;
+5- create database alunos;
+6- show databases;
+7- use alunos;
+8- show tables;
+9- create table aluno ( idAluno integer, nomeAluno varchar(45), enderecoAluno varchar(45), emailAluno varchar(45) )
+10- show tables;
+11- drop table aluno;
+12- create table aluno ( idAluno integer, nomeAluno varchar(45), enderecoAluno varchar(45), emailAluno varchar(45) )
+13- show tables;
+14- select * from aluno;
+15 - insert into alunos values ( 1, 'José Antonio Rocha', 'Av. Brasil, 120 - São Paulo', 'joserocha@gmail' );
+     insert into alunos values ( 20, 'Mario Antunes', 'Rua Graca de Souza, 70 - São Paulo', 'marioantunes@uol.com.br' );
+     insert into alunos values ( 5, 'Pedro Cândido Silva', 'Rua Amazonas, 45 - Ribeirão Preto', 'pedrocandido@uol.com.br' );
+     insert into alunos values ( 7, 'Ana de Souza Carolina', 'Rua Antonio Silva, 70 - Santos', 'anasouza@gmail' );
+     insert into alunos values ( 45, 'Paula Andressa Guedes', 'Rua Catanduva, 345 - Natal', 'pauloguedes@gmail' );
+16- select * from aluno;
+17- select * from aluno group by nomealuno;
+18- select idAluno, nomeAluno from aluno;
+19- delete from aluno where idAluno = 1;
+20- select * from aluno;
+21- delete * from aluno;
+22- select * from aluno;
+23- insert into aluno values ( 1, 'José Antonio Rocha', 'Av. Brasil, 120 - São Paulo', 'joserocha@gmail' ), ( 20, 'Mario Antunes', 'Rua Graca de Souza, 70 - São Paulo', 'marioantunes@uol.com.br' ), ( 5, 'Pedro Cândido Silva', 'Rua Amazonas, 45 - Ribeirão Preto', 'pedrocandido@uol.com.br' ), ( 7, 'Ana de Souza Carolina', 'Rua Antonio Silva, 70 - Santos', 'anasouza@gmail' ), ( 45, 'Paula Andressa Guedes', 'Rua Catanduva, 345 - Natal', 'pauloguedes@gmail' );
+24- drop table aluno;
+25- drop database aluno;
+26- show databases;

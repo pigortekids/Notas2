@@ -1,0 +1,35 @@
+1- services.msc
+2- mysql -uroot -p
+3- alter user'root'@'localhost' identified by '123';
+4- show databases;
+5- create database P;
+6- show databases;
+7- use P;
+8- show tables;
+9- create table t (V1 integer primary key);
+
+	alter table t add V2 smallint;
+
+	alter table t add V3 numeric(8,2);
+
+	alter table t add V4 real;
+
+	alter table t add V5 double precision;
+
+	alter table t add V6 float(5);
+10- show tables;
+11- show create table t;
+12- insert into t values ( 1, 10, 30.90, 34.988, 45.00, 2.099 );
+	insert into t values ( 3, 5, 1.87, 12.87, 11.987, 1.0);
+	insert into t values ( 5, 36, 190.6, 1238.8876, 12.0, 111.9875);
+	insert into t values ( 8, 9, 25.86, 1298.65, 1.00001, 12.83321);
+	insert into t values ( 34, 19, 123.5, 12.87654, 12.098765, 12.0098);
+13- select * from t;
+14- select * from t group by v2;
+15- select v1, v5 from t group by v1;
+16- delete from t where v1 = 3;
+17- select * from t;
+18- delete * from t;
+19- select * from t;
+20- insert into t values ( 1, 10, 30.90, 34.988, 45.00, 2.099 ), ( 3, 5, 1.87, 12.87, 11.987, 1.0), ( 5, 36, 190.6, 1238.8876, 12.0, 111.9875), ( 8, 9, 25.86, 1298.65, 1.00001, 12.83321), ( 34, 19, 123.5, 12.87654, 12.098765, 12.0098);
+22- source T:\15.00588-7\Notas2\Banco de Dados\Pretica_1B.sql
