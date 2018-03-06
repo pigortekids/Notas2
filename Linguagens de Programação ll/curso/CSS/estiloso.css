@@ -1,0 +1,175 @@
+body{
+    background-color: #fcfffc;
+}
+
+.header {
+    
+background-image: url("../imagens/foto_imt.jpg");
+    
+height: 450px;
+}
+
+.logo {
+    width: 100%;
+    text-align: left;
+}
+ 
+.img-logo {
+    width: 143px;
+    height: 66px;
+    margin: 20px auto 50px 50px;
+}
+
+.header h1{
+    
+color: #DCDAFF;
+    
+text-align: -webkit-center;
+    
+font: 100 5em monospace;
+}
+
+.header h2{
+    font-size: 1.2em;
+    color: #DCDAFF;
+    text-align: -webkit-center;
+    margin: 50px;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+.header .botao_participar{
+    color: #DCDAFF;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #c1b244;
+    width: 13%;
+    border-radius: 11px;
+    padding: 13px;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+h3{
+    
+background-color: #FBB03B;
+    
+color: black;
+}
+
+.segundo{
+    
+margin: auto;
+}
+
+.segundo h1{
+    font-size: 2em;
+    text-align: -webkit-center;
+    padding-top: 90px;
+    font-family: monospace;
+}
+
+.segundo .paragrafo1{
+    text-align: -webkit-center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.segundo .gif{
+    
+margin: auto;
+    
+width: 250px;
+}
+
+.video{
+    
+text-align: center;
+}
+
+.segundo .paragrafo2{
+    text-align: -webkit-center;
+    margin-top: 30px;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.terceiro{
+    
+background-color: #051839;
+    
+height: 420px;
+}
+
+.terceiro h1{
+    
+margin-top: 100px;
+    
+padding-top: 85px;
+    
+text-align: center;
+    
+font-size: 2em;
+    
+font-family: monospace;
+    
+color: #dcdaff;
+}
+
+.terceiro h2{
+    
+font-size: 1.2em;
+    
+font-family: monospace;
+    
+text-align: center;
+    
+padding-top: 20px;
+    
+text-transform: uppercase;
+    
+color: #dcdaff;
+}
+
+.conteudo-itens{
+    
+width: 80%;
+    
+margin: auto 10%;
+}
+
+.conteudo-itens .artigo{
+    
+margin-top: 50px;
+    
+width: 33%;
+    
+height: 150px;
+    
+border-radius: 15px;
+    
+float: left;
+}
+
+.conteudo-itens .paragrafo{
+    
+font-size: 1em;
+    
+font-family: monospace;
+    
+margin-top: 10px;
+    
+text-align: center;
+    
+padding: 15px;
+    
+color: #dcdaff;
+}
+
+.conteudo-itens .artigo:hover{
+    background: no-repeat center top 20px;
+    color: #FFF;
+}
