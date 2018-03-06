@@ -1,0 +1,13 @@
+1- Programa para obtenção de valores em lojas virtuais de algum produto em específico.
+2- Criar bots para navegar em lojas de internet em busca de informações de preço de produtos.
+3- Bots, e-commerce.
+4- 
+5- Objetivo de fazer um produto parecido com sites da internet de busca de passagens de avião.
+6- 
+7- Site em HTML5 e seus perifericos.
+8- bots de pesquisa, base de dados com informações, conectar o site a internet com a internet, auxilio de busca ao cliente.
+9- 1ºbots de pesquisa, 2ºbase de dados, 3ºsite, 4ºcliente
+10- 
+11- HTML5 com seus perifericos, mysql.
+12- O usuário apenas vai ter um site com opções do tipo do produto que ele quer, preço, local de compra, etc.
+13- 

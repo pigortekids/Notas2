@@ -1,0 +1,51 @@
+1-a) Modelo de Dados é a estrutura do banco de dados. Formas de abstração dos dados.
+1-b) Esquema de Banco de Dados é a descrição do banco de dados.
+1-c) Estado de Banco de Dados é um estado em que as informações se encontram dentro dele. Se você alterar alguma informação o estado muda.
+1-d) Esquema Interno é a descrição da estrutura do armazenamento físico do banco de dados.
+1-e) Esquema Conceitual é a descrição da estrutura inteira do banco de dados para usuários.
+1-f) Esquema Externo é a descrição de uma parte especifica do banco de dados para usuários.
+1-g) Independência de Dados é a possibilidade de se alterar a definição de um esquema sem alterar a definição de outros esquemas.
+1-h) DDL é uma linguagem para definição dos dados em um banco de dados.
+     DML é uma linguagem para manipulação dos dados em um banco de dados.
+1-i) Linguagem de Consulta é a linguagem utilizada para ler as informações em um banco de dados.
+1-j) Utilitário de Banco de Dados é alguma ferramenta para manipulação dos dados em um servidor de banco de dados.
+1-k) Catálogo é onde se encontram os metadados do banco de dados (os dados sobre o banco de dados em si).
+1-l) Arquitetura Cliente/Servidor é um tipo de arquitetura na qual o usuário se utiliza das informações do banco de dados, enquanto o servidor disponibiliza as funções para vizualização do banco de dados.
+1-m) Arquitetura de Três Camadas é um tipo de arquitetura na qual tem uma camada do cliente, uma do servidor e uma intermediária a essa chamada "Camada de Negócio" que nada mais é que uma outra camada de abstração entre as duas camadas principais de um banco de dados.
+
+2- O esquema de um banco de dados é a descrição das informações que se encontram dentro dele, enquanto o estado são os estados de como as informações se encontram dentro dele.
+
+3- A arquitetura de três camadas seria uma arquitetura cliente/servidor com uma camada extra de abstração entre os dois.
+   É necessario o mapeamento entre níveis de esquemas para que haja segurança na mudança de estado independente da camada em que essa mudança ocorrer.
+   Dão suporte separando oque pode ser visto e/ou manipulado por cada camada da arquitetura.
+
+4- Independência física e a habilidade de modificar o esquema físico sem a necessidade de reescrever o banco de dados, enquanto a independência lógica e a habilidade de modificar o esquema conceitual sem a necessidade de reescrever o banco de dados.
+   A independência lógica é mais dificil de se alcançar, pois ela está ligada a definição do banco de dados, enquanto a física apenas está sobre o estado do banco de dados.
+
+5- Com algum software para manipulação desse sistema.
+
+6- Microsoft SQL Studio é uma ferramenta para visualização das informações dentro de um servidor de banco de dados, tendo funções para obter dados de todas as tabelas dentro desse servidor.
+   Utilitário bcp é um utilitário para copiar dados entre uma instância de um servidor de banco de dados e um arquivo de dados em formato especificado.
+
+7- 
+
+8- Arquitetura de três camadas, pois seria necessario a camada do cliente para os usuários desse sistema, a camada de negocios que seria a pagina web para oferecer as funções de manipulação do sistema, e a camada do sistema para gerenciamento dos dados.
+   As outras arquiteturas não seriam tão efetivas porque não seria tão seguro e tão efetivo quanto a de três camadas, pois separando as funções de pesquisa da camada do servidor e/ou da camada do cliente evita falhas na segurança e permite que o sistema de banco de dados apenas se preocupe no gerenciamento das informações dentro dele.
+
+9- DISCIPLINA --> Numero_desciplina (deve ser exclusivs)
+   PRE_REQUISITO --> Numero_pre_requisito
+   TURMA --> Indentificacao_turma
+   HISTORICO_ESCOLAR 00> Numero_aluno
+
+10- Uma operação de consulta seria para procurar a nota de um aluno em uma disciplina.
+    Uma operação de atualização seria para mudar ou adicionar a nota de um aluno em uma disciplina.
+
+11- [ALUNO]![Numero_aluno] --> [HISTORICO_ESCOLAR]![Numero_aluno]
+    [ALUNO]![Curso] --> [DISCIPLINA]![Departamento]
+    [DISCIPLIA]![Numero_disciplina] --> [TURMA]![Numero_disciplina]
+
+12- A visão de um professor pode ver todas as notas dos alunos, porem um aluno só pode ver a nota dele mesmo.
+
+13- As colunas [ALUNO]![Numero_aluno] e [DISCIPLIA]![Numero_disciplina] por exemplo, não podem ter valores repetidos, se não a integridade do banco de dados seria falha, alem de esses campos tambem terem de ser valores inteiros, como outros campos que devem ser apenas de um tipo para manter a integridade so servidor.
+
+14- Aplicações que não tem um volume grande de dados, e/ou não necessitem de visões diferentes entre os usuários.
