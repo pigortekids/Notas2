@@ -1,0 +1,23 @@
+1- services.msc
+2- C:/sqlplus.exe
+3- CREATE TABLE tabaluno (idAluno integer primary key, nome varchar(20), endereco varchar(30));
+4- DESCRIBE tabaluno;
+5- INSERT INTO tabaluno VALUES (1, 'Paulo Marcos', 'Av.Brasil, 120 - RJ');
+6- SELECT * FROM tabaluno;
+7- INSERT INTO tabaluno VALUES (7, 'Ana de Souza', 'Rua Marcos Silva, 70 - SP');
+8- SELECT * FROM tabaluno;
+9- SELECT * FROM tabaluno ORDER BY nome;
+10- SELECT idaluno, nome, from tabaluno ORDER BY nome;
+11- DELETE FROM tabaluno WHERE idAluno = 1;
+12- SELECT * FROM tabaluno;
+13- DELETE FROM tabaluno;
+14- INSERT ALL
+	INTO tabaluno(idAluno, nome, endereco) VALUES(1, 'Paulo Marcos', 'Av.Brasil, 120 - RJ')
+	INTO tabaluno(idAluno, nome, endereco) VALUES(20, 'Tadeu Antunes', 'Rua Luiz de Souza, 70 - RJ')
+	INTO tabaluno(idAluno, nome, endereco) VALUES(5, 'Pedro Xavier', 'Rua Amazonas, 45 - SP')
+	INTO tabaluno(idAluno, nome, endereco) VALUES(7, 'Ana de Souza', 'Rua Marcos Silva, 70 - SP')
+	INTO tabaluno(idAluno, nome, endereco) VALUES(45, 'Paula Andressa', 'Rua Catanduva, 345 - SP')
+	SELECT * FROM dual;
+15- SELECT * FROM tabaluno;
+16- DROP TABLE tabaluno;
+18- START 't:/Pratica_1EA.sql'

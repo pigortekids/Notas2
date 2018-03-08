@@ -1,0 +1,21 @@
+1- CREATE TABLE tabf (v1 integer primary key, v2 smallint, v3 numeric(8,2), v4 real, v5 double precision, v6 float(5));
+2- DESCRIBE tabf;
+3- INSERT INTO tabf VALUES (10, 10, 30.90, 34.988, 45.00, 2.099);
+4- SELECT * FROM tabf;
+5- INSERT INTO tabf VALUES (8, 9, 25.36, 1298.65, 1.00001, 12.83321);
+6- SELECT * FROM tabf;
+7- SELECT * FROM tabf ORDER BY v1;
+8- SELECT v1, v5 from tabf ORDER BY v1;
+9- DELETE FROM tabf WHERE v1 = 8;
+10- SELECT * FROM tabf;
+11- DELETE FROM tabf;
+12- INSERT ALL
+	into tabf values ( 10, 10, 30.90, 34.988, 45.00, 2.099);
+	into tabf values ( 3, 5, 1.87, 12.87, 11.987, 1.0);
+	into tabf values ( 5, 36, 190.6, 1238.8876, 12.0, 111.9875);
+	into tabf values ( 8, 9, 25.86, 1298.65, 1.00001, 12.83321);
+	into tabf values ( 34, 19, 123.5, 12.87654, 12.098765, 12.0098);
+	SELECT * FROM dual;
+13- SELECT * FROM tabf;
+14- DROP TABLE tabf;
+16- START 't:/Pratica_1EB.sql'
