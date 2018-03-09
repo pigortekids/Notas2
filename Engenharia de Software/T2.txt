@@ -1,0 +1,20 @@
+1- É um conjuntos de rotinas(instruções de máquina) feitas para o proposito de ajudar um cliente.
+2- Segurança, desempenho, facilidade no uso, efetividade, não ter ambiguidade, etc.
+3- São softwares que já tinham sido criados para um proposito, e foram mudados para atender outra exigência.
+4- Na tradução de uma linguagem de códigos para uma linguagem de maquina, que dessa forma, podera ser interpretado e rodado.
+5- CASE são ferramentas com proposito de auxilio na construção de um software. Isso ajuda no aumento da produtividade, qualidade, gerenciamento, redução de custos, etc.
+6- São sistemas focados em transação de informações. Sistemas Contábeis, aplicações de cadastro, sistemas de compra, etc.
+7- Um sistema batch é um processamento em lote. Algumas aplicações são: geração de backups, atualização de uma base de dados, geração de relatorios, etc.
+8- São mini computadores capazes de processarem uma quantidade limitada de informações para aplicações simples com entrada e saida de dados via perifericos. Raspberry, Arduino, celulares, etc.
+9- São softwares de gestão empresarial. É um software que carrega todos os dados de uma empresa, facilitando a visualização de informações importantes que podem ajudar no futuro desempenho da empresa.
+10- Representou a impossibilidade de desenvolvimento rapido, pois não se era possivel ter um processamento grande de informações de uma forma facil nem barata, com isso adiando o desenvolvimento das áreas da computação.
+11- As consequências são a possivel demora para a construção, a produção de um software que não satisfará o cliente, a falta de organização de atividades, etc.
+12- Construir um software que atenda o cliente da melhor forma possivel e com um software construido e gerenciado com o maior desempenho possivel.
+13- Engenharia de Sistemas é a contrução de de sistemas de computação, já a Engenharia de Software criaria um programa com base nos sistemas que foram criados.
+14- Ciência da Computação é mais focada na programação em si, já a Engenharia de Software pensa mais no produto a ser entregue.
+15- Organização do projeto para a construção de um software, interação com o cliente, aplicação de testes, etc.
+16- É uma engenharia que estuda as melhores metodologias para construção de softwares.
+17- Se um hardware for dar problema, ou vai ser por má construção dele, que daria erro logo no inicio da utilização, ou depois de muito tempo de utilização, que começaria a dar problemas por desgaste.
+18- A curva do Software é ocasionada pois quanto mais implementações se faz em um programa, mais dificil gerenciar todos os possiveis erros que podem ocorrer, e dessa forma aumentando a probabilidade de occorerem erros.
+19- Softwares para analises médicas, softwares para investimento na bolsa de valores, softwares para robôtica, softwares de pesquisa, softwares de reconhecimento de imagens, etc.
+20- São rotinas que um software utiliza para fazer certas tarefas.

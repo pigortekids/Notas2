@@ -1,0 +1,15 @@
+1- services.msc
+2- C:/sqlplus.exe
+3- CREATE TABLE tabh (v1 DATE, v2 TIMESTAMP, v3 integer primary key);
+4- DESCRIBE tabh;
+5- INSERT ALL
+	INTO tabh VALUES('2008-08-27', '2010-09-30 09:12:47', 10)
+	INTO tabh VALUES('2001-12-31', '1999-10-29 12:40:50', 23)
+	INTO tabh VALUES('2014-11-07', '2013-12-26 13:45:12', 25)
+	SELECT * FROM dual;
+6- SELECT * FROM tabh;
+7- SELECT * FROM tabh ORDER BY v2;
+8- SELECT v1, v3 from tabh ORDER BY v1;
+9- DELETE FROM tabh;
+10- SELECT * FROM tabh;
+12- START 't:/Pratica_1ED.sql'

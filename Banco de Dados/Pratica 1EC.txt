@@ -1,0 +1,18 @@
+1- services.msc
+2- C:/sqlplus.exe
+3- CREATE TABLE tabg (v1 char(20), v2 varchar(2), v3 integer primary key);
+4- SELECT * FROM ALL_TABLES;
+5- DESCRIBE tabg;
+6- INSERT ALL
+	INTO tabg VALUES('MAUA', 'COMP', 10)
+	INTO tabg VALUES('ABC', 'XY', 23)
+	INTO tabg VALUES('ANA', 'PAULO', 25)
+	INTO tabg VALUES('PEDRO', 'JOSE', 34)
+	INTO tabg VALUES('SOUZA', 'IVO', 5)
+	SELECT * FROM dual;
+7- SELECT * FROM tabg;
+8- SELECT * FROM tabg ORDER BY v2;
+9- SELECT v1, v3 from tabg ORDER BY v1;
+10- DELETE FROM tabg;
+11- SELECT * FROM tabg;
+13- START 't:/Pratica_1EC.sql'
