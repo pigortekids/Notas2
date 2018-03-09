@@ -1,0 +1,34 @@
+[System]
+Name='aula01'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='erro'
+Range=[-1 1]
+NumMFs=3
+MF1='en':'trimf',[-1.99 -0.995 0.00529]
+MF2='ez':'trimf',[-0.6 0 0.6]
+MF3='ep':'trimf',[0 1 2]
+
+[Output1]
+Name='armadura'
+Range=[-1 1]
+NumMFs=3
+MF1='ven':'trimf',[-2 -1 0.2]
+MF2='sz':'trimf',[-0.04 0 0.04]
+MF3='vep':'trimf',[-0.2 1 2]
+
+[Rules]
+2, 2 (1) : 1
+1, 1 (1) : 1
+3, 3 (1) : 1
+
