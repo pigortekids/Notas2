@@ -1,0 +1,19 @@
+1- \l
+2- create database bd;
+3- \l
+3- \c bd
+4- \d
+5- CREATE TABLE t (v1 DATE, v2 TIMESTAMP, v3 integer primary key);
+6- \d t
+7- insert into t values('2008-08-27', '2010-09-30 09:12:47', 10);
+	insert into t VALUES('2001-12-31', '1999-10-29 12:40:50', 23);
+	insert into t VALUES('2014-11-07', '2013-12-26 13:45:12', 25);
+8- select * from t;
+9- select * from t group by v2;
+10- select v1, v5 from t group by v1;
+11- delete from t where v1 = 10;
+12- select * from t;
+13- delete from t;
+14- select * from t;
+15- insert into t values ('2008-08-27', '2010-09-30 09:12:47', 10), ('2001-12-31', '1999-10-29 12:40:50', 23), ('2014-11-07', '2013-12-26 13:45:12', 25);
+16- \i C:\users\Aluno\pratica1D.sql

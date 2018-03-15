@@ -1,0 +1,20 @@
+1- \l
+2- create database bd;
+3- \l
+4- \c bd
+5- \d
+6- CREATE TABLE t (v1 integer primary key, v2 smallint, v3 numeric(8,2), v4 real, v5 double precision, v6 float(5));
+7- \d t
+8- insert into t values ( 1, 10, 30.90, 34.988, 45.00, 2.099 );
+	insert into t values ( 3, 5, 1.87, 12.87, 11.987, 1.0);
+	insert into t values ( 5, 36, 190.6, 1238.8876, 12.0, 111.9875);
+	insert into t values ( 8, 9, 25.86, 1298.65, 1.00001, 12.83321);
+	insert into t values ( 34, 19, 123.5, 12.87654, 12.098765, 12.0098);
+9- select * from t;
+10- select * from t group by v2;
+11- select v1, v5 from t group by v1;
+12- delete from t where v1 = 3;
+13- select * from t;
+14- delete from t;
+15- select * from t;
+16- insert into t values ( 1, 10, 30.90, 34.988, 45.00, 2.099 ), ( 3, 5, 1.87, 12.87, 11.987, 1.0), ( 5, 36, 190.6, 1238.8876, 12.0, 111.9875), ( 8, 9, 25.86, 1298.65, 1.00001, 12.83321), ( 34, 19, 123.5, 12.87654, 12.098765, 12.0098);

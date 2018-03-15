@@ -1,6 +1,6 @@
 1- services.msc
 2- mysql -uroot -p
-3- alter user'root'@'localhost' identified by '123';
+3- alter user'root'@'localhost' identified by '123'; - h204prof
 4- show databases;
 5- create database alunos;
 6- show databases;
@@ -24,7 +24,7 @@
 20- select * from aluno;
 21- delete * from aluno;
 22- select * from aluno;
-23- insert into aluno values ( 1, 'José Antonio Rocha', 'Av. Brasil, 120 - São Paulo', 'joserocha@gmail' ), ( 20, 'Mario Antunes', 'Rua Graca de Souza, 70 - São Paulo', 'marioantunes@uol.com.br' ), ( 5, 'Pedro Cândido Silva', 'Rua Amazonas, 45 - Ribeirão Preto', 'pedrocandido@uol.com.br' ), ( 7, 'Ana de Souza Carolina', 'Rua Antonio Silva, 70 - Santos', 'anasouza@gmail' ), ( 45, 'Paula Andressa Guedes', 'Rua Catanduva, 345 - Natal', 'pauloguedes@gmail' );
+23- insert into aluno values ( 1, 'José Antonio Rocha', 'Av. Brasil, 120 - São Paulo', 'joserocha@gmail' ), ( 20, 'Mario Antunes', 'Rua Graca de Souza, 70 - São Paulo', 'marioantunes@uol.com.br' ), ( 5, 'Pedro Cândido Silva', 'Rua Amazonas, 45 - Ribeirão Preto', 'pedrocandido@uol.com.br' ), ( 7, 'Ana de Souza Carolina', 'Rua Antonio Silva, 70 - Santos', 'anasouza@gmail' ), ( 45, 'Paula Andressa Guedes', 'Rua Catanduva, 345 - MG', 'pauloguedes@gmail' );
 24- drop table aluno;
 25- drop database aluno;
 26- show databases;

@@ -1,0 +1,31 @@
+1-sql sHELL(PSQL)
+2-LOCALHOST
+	POSTGRES
+	5432
+	postgres
+	maua
+
+3-\l
+4-create database alunos;
+5-\l
+6-\c alunos
+7-\d
+8-create table aluno (idAluno integer primary key, nomeAluno varchar(45), enderecoAluno varchar(45), emailAluno varchar(45));
+9-\d
+10-insert into aluno values ( 1, 'Paulo Silva Rocha', 'Av. Brasil, 120 - São Paulo', 'paulorocha@gmail.com' );
+     insert into aluno values ( 20, 'Ana Antunes', 'Rua Aranha de Souza, 70 - 	Rio de Janeiro', 'anaantunes@uol.com.br' );
+     insert into aluno values ( 5, 'Pedro Xavier Silva', 'Rua Amazonas, 45 - São Paulo', 'pedroxavier@uol.com.br' );
+     insert into aluno values ( 7, 'Beatriz Carolina', 'Rua Saulo Silva, 70 - Rio Grande do Sul', 'beatriz@gmail.com' );
+     insert into aluno values ( 45, 'Paula Andressa Guedes', 'Rua Catanduva, 345 - MG', 'pauloguedes@gmail.com' );
+11-select * from aluno;
+12-select * from aluno group by nomeAluno;
+13-select idAluno, nomeAluno from aluno group by nomeAluno;
+14-delete from aluno where idAluno = 1;
+15-select * from aluno;
+16-delete from aluno;
+17-select * from aluno;
+18-insert into aluno values ( 1, 'Paulo Silva Rocha', 'Av. Brasil, 120 - São Paulo', 'paulorocha@gmail.com' ), ( 20, 'Ana Antunes', 'Rua Aranha de Souza, 70 - 	Rio de Janeiro', 'anaantunes@uol.com.br' ), ( 5, 'Pedro Xavier Silva', 'Rua Amazonas, 45 - São Paulo', 'pedroxavier@uol.com.br' ), ( 7, 'Beatriz Carolina', 'Rua Saulo Silva, 70 - Rio Grande do Sul', 'beatriz@gmail.com' ), ( 45, 'Paula Andressa Guedes', 'Rua Catanduva, 345 - Natal', 'pauloguedes@gmail' );
+19-drop table aluno;
+20-drop database alunos;
+21-\l
+22-\i C:\users\Aluno\pratica1A.sql
