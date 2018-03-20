@@ -1,0 +1,69 @@
+h1{
+    color: brown;
+    font-size: 75px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.classe1{
+    color: crimson;
+}
+
+#id1{
+    color: darkgreen;
+    font-size: 20px;
+}
+
+#id1 > p{
+    font-size: 10px;
+}
+
+#id2{
+    color: violet;
+    font-size: 30px;
+}
+
+#id3{
+    color: tomato;
+    font-size: 40px;
+}
+
+label + input{
+    border: 5px solid red;
+}
+
+li:first-child{
+    background-color: coral;
+}
+
+li:nth-child(2){
+    background-color: #666;
+}
+
+li:last-child{
+    background-color: darkblue;
+    color: darkgoldenrod;
+}
+
+.ul-top{
+    width: 100px;
+    height: 50px;
+    padding: 20px 20px;
+    background-color: chartreuse;
+    border: 10px solid red;
+    margin: 20px 20px;
+}
+
+
+body{
+    /*
+    background-image: url('../imagens/download.jfif');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50px 50px;
+    */
+    font-family: 'Indie Flower', cursive;
+}

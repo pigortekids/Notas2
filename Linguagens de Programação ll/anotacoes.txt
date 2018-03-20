@@ -1,0 +1,21 @@
+http://grupodetrestop.s3-website-us-east-1.amazonaws.com/
+
+balsamiq
+
+student github
+
+free cuppons for udemy
+
+
+
+visual studio code --> javascrpit, typescript, php, docer, html snippets, beautify css/sass/scss/less
+
+html5
+
+shift + alt + f --> identação
+
+https://www.base64-image.de/ --> show code, joga no css
+
+https://fonts.google.com/
+
+https://getbootstrap.com/
