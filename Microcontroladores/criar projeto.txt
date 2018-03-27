@@ -2,3 +2,11 @@ GCC C ASF Board Project
 (Atmel ASF(3.32.0))
 "Select By Board"
 SAM4S-EK2 - ATSAM4D32C
+
+asf
+asf_wizard
+delay sei la oque, add aply
+
+para rodar:
+build, build solution
+tools, appply, read, memories, program
