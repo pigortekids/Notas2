@@ -5,8 +5,16 @@ SAM4S-EK2 - ATSAM4D32C
 
 asf
 asf_wizard
-delay sei la oque, add aply
+(api documentation)
+-delay routines
+-usart serial
+-standart serial I/O
 
 para rodar:
 build, build solution
-tools, appply, read, memories, program
+tools, appply, (memories)program
+
+http://asf.atmel.com/docs/latest/index.html --> API, SAM4S
+
+putty --> serial
+gerenciador de dispositivos (portas com e lpt)
