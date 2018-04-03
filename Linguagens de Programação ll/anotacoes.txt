@@ -20,3 +20,6 @@ https://fonts.google.com/
 
 https://getbootstrap.com/
 '''card
+
+https://bcrypt-generator.com/
+http://hashids.org/javascript/
