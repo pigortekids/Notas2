@@ -31,6 +31,19 @@ void inicializacao_UART (){
 }
 
 
+void pisca_LED(int led){
+	if(led == LED_VERMEIO){
+		ioport_set_pin_level(led, 1);
+		delay_ms(40);
+		ioport_set_pin_level(led, 0);
+	}
+	else{
+		ioport_set_pin_level(led, 0);
+		delay_ms(40);
+		ioport_set_pin_level(led, 1);
+	}
+}
+
 int main (void){
 	sysclk_init();
 	board_init();
@@ -65,7 +78,7 @@ int main (void){
 	while(1){
 		key = getchar(); //espera uma char
 		switch(key){
-			case 'A':
+			case 'a':
 				//PIOC->PIO_SODR = (LED_VERMEIO); break;
 				ioport_set_pin_level(LED_VERMEIO, 1); break;
 			case 's':
@@ -74,7 +87,7 @@ int main (void){
 			case 'd':
 				//PIOA->PIO_CODR = (LED_VERDE); break;
 				ioport_set_pin_level(LED_VERDE, 0); break;
-			case 'B':
+			case 'f':
 				//PIOC->PIO_CODR = (LED_VERMEIO); break;
 				ioport_set_pin_level(LED_VERMEIO, 0); break;
 			case 'g':
@@ -83,6 +96,24 @@ int main (void){
 			case 'h':
 				//PIOA->PIO_SODR = (LED_VERDE); break;
 				ioport_set_pin_level(LED_VERDE, 1); break;
+			case 'q':
+				for(int i=0;i<5;i++){
+					pisca_LED(LED_VERMEIO);
+					delay_ms(40);
+					pisca_LED(LED_VERMEIO);
+					delay_ms(40);
+					pisca_LED(LED_VERMEIO);
+					delay_ms(40);
+					pisca_LED(LED_VERMEIO);
+					delay_ms(40);
+					pisca_LED(LED_AZUL);
+					delay_ms(200);
+					pisca_LED(LED_VERDE);
+					delay_ms(200);
+					pisca_LED(LED_AZUL);
+					delay_ms(200);
+				}
+				break;
 			default:
 				puts("BURRO!!!\r"); break;
 		}
