@@ -1,13 +1,3 @@
-#titulo4{
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    width: 100%;
-    font-size: 60px;
-    font-family: 'Oswald', sans-serif;
-    color: black;
-}
-
 .titulo{
     font-size: 40px;
     font-family: 'Oswald', sans-serif;
@@ -22,6 +12,16 @@
     text-align: center;
 }
 
+#titulo4{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    font-size: 60px;
+    font-family: 'Oswald', sans-serif;
+    color: black;
+}
+
 #section5{
     background-color: rgb(250, 250, 250);
     padding: 5% 18% 5% 18%;
@@ -32,13 +32,13 @@
 }
 
 #subtitulo5{
-    padding: 0% 12% 5% 12%;
+    padding: 0% 20% 5% 20%;
     color: rgb(56, 81, 114);
 }
 
 #section6{
     background-color: rgb(19, 140, 177);
-    padding: 5% 28% 5% 28%;
+    padding: 5% 32% 5% 32%;
 }
 
 #titulo6{
@@ -47,6 +47,11 @@
 
 #subtitulo6{
     color: white;
+}
+
+#section7{
+    background-color: rgb(250, 250, 250);
+    padding: 5% 18% 5% 18%;
 }
 
 #titulo7{
