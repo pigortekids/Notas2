@@ -61,10 +61,10 @@ li:last-child{
 
 body{
     
-    /*background-image: url('../imagens/img_bg_2.jpg');
+    background-image: url('../imagens/img_bg_2.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: 50px 50px;*/
+    background-position: 50px 50px;
     
     font-family: 'Indie Flower', cursive;
 }
