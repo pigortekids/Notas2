@@ -33,7 +33,7 @@ int main (void)
 	while(1){
 		LED_Toggle(LED1_GPIO);
 		delay_ms(300);
-		pmc_sleep(SAM_PM_SMODE_SLEEP_WFI);
+		pmc_sleep(SAM_PM_SMODE_SLEEP_WFI);//deixa a placa esperando um comando
 	}
 
 }
