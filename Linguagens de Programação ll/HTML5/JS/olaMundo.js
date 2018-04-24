@@ -53,12 +53,12 @@ for(i=0;i<alunos.length;i++){
 }
 
 function calculaMedia(aluno, x){
-    var notap1 = Number(aluno.querySelectorAll("td")[2].textContent);
-    var notap2 = Number(aluno.querySelectorAll("td")[3].textContent);
-    var notasub1 = Number(aluno.querySelectorAll("td")[4].textContent);
-    var notap3 = Number(aluno.querySelectorAll("td")[5].textContent);
-    var notap4 = Number(aluno.querySelectorAll("td")[6].textContent);
-    var notasub2 = Number(aluno.querySelectorAll("td")[7].textContent);
+    var notap1 = Number(aluno.querySelectorAll("td")[1].textContent);
+    var notap2 = Number(aluno.querySelectorAll("td")[2].textContent);
+    var notasub1 = Number(aluno.querySelectorAll("td")[3].textContent);
+    var notap3 = Number(aluno.querySelectorAll("td")[4].textContent);
+    var notap4 = Number(aluno.querySelectorAll("td")[5].textContent);
+    var notasub2 = Number(aluno.querySelectorAll("td")[6].textContent);
     if (notap1 < notasub1) {
         notap1 = notasub1;
     }
@@ -73,8 +73,8 @@ function calculaMedia(aluno, x){
     }
     var media = notap1*2 + notap2*2 + notap3*3 + notap4*3;
     media /= 10;
-    aluno.querySelectorAll("td")[8].textContent = media.toFixed(2);
-    var passou = aluno.querySelectorAll("td")[9];
+    aluno.querySelectorAll("td")[7].textContent = media.toFixed(2);
+    var passou = aluno.querySelectorAll("td")[8];
     if (media > 6) {
         passou.textContent = "S";
     }
@@ -105,6 +105,51 @@ butaum.addEventListener("click", function(event){
         }
     }
 
+    var trAluno = document.createElement("tr"); //criar elemento tr
+    trAluno.setAttribute("class", "notas");     //setar atributos no tr
+
+    var tdRA = document.createElement("th");
+    tdRA.setAttribute("class", "ra");
+
+    var tdNome = document.createElement("td");
+    var tdP1 = document.createElement("td");
+    var tdP2 = document.createElement("td");
+    var tdPS1 = document.createElement("td");
+    var tdP3 = document.createElement("td");
+    var tdP4 = document.createElement("td");
+    var tdPS2 = document.createElement("td");
+    var tdMedia = document.createElement("td");
+    var tdAprovado = document.createElement("td");
+
+    tdRA.textContent = ra;
+    tdNome.textContent = nome;
+    tdP1.textContent = p1;
+    tdP2.textContent = p2;
+    tdPS1.textContent = ps1;
+    tdP3.textContent = p3;
+    tdP4.textContent = p4;
+    tdPS2.textContent = ps2;
+
+    trAluno.appendChild(tdRA);
+    trAluno.appendChild(tdNome);
+    trAluno.appendChild(tdP1);
+    trAluno.appendChild(tdP2);
+    trAluno.appendChild(tdPS1);
+    trAluno.appendChild(tdP3);
+    trAluno.appendChild(tdP4);
+    trAluno.appendChild(tdPS2);
+    trAluno.appendChild(tdMedia);
+    trAluno.appendChild(tdAprovado);
+
+    var tabela = document.querySelector("table").querySelector("tbody");
+    tabela.appendChild(trAluno);
+
+    console.log(trAluno);
+
+    var aluno = document.querySelectorAll("tr")[tabela.rows.length];
+    calculaMedia(aluno);
+
+    /*
     var tabela = document.getElementById('table').getElementsByTagName('tbody')[0];
     var linha = tabela.insertRow(tabela.rows.length);
     console.log(tabela.rows.length);
@@ -118,5 +163,6 @@ butaum.addEventListener("click", function(event){
 
     var aluno = document.querySelectorAll("tr")[tabela.rows.length];
     calculaMedia(aluno);
+    */
 
 })
