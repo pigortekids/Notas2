@@ -14,6 +14,8 @@ src\ASF\sam\components\display\ili93xx\ili93xx.c
 
 src\ASF\sam\drivers\adc\adc.c
 
+src\ASF\sam\drivers\pwm\pwm.c
+
 src\ASF\sam\drivers\tc\tc.c
 
 src\ASF\sam\drivers\usart\usart.c

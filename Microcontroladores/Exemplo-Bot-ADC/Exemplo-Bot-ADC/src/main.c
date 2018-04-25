@@ -195,6 +195,7 @@ void TC_Handler(void)
 }
 
 
+
 /************************************************************************/
 /* MAIN                                                                 */
 /************************************************************************/
@@ -212,8 +213,11 @@ int main(void)
 	ili93xx_set_foreground_color(COLOR_BLACK);
 	ili93xx_draw_string(10, 20, (uint8_t *)"Aula - ADC");
 
+
 	int i = 0;
 	while (1) {
+
+	/*
 		ili93xx_set_foreground_color(COLOR_WHITE);
 		ili93xx_draw_filled_rectangle(170, 170, 230, 230);
 		ili93xx_set_foreground_color(COLOR_BLACK);
@@ -236,5 +240,6 @@ int main(void)
 				break;
 		}
 		delay_ms(100);
+	*/
 	}
 }
