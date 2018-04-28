@@ -1,0 +1,15 @@
+descrição:
+Projeto de manipulação de LEDs com frequência recebida por meio de um sensor de som (microfone), 
+também com mudança no comportamento dos LEDs com sensores de luminosidade e presença, 
+e transferir as informações coletadas via bluetooth para um celular (iOS).
+
+anotações:
+KY-038 (microfone)
+FFT --- Formantes Fourier
+
+Sensores:
+Luminosidade LDR
+Presença 
+Bluetooth HC (08 ou 06)
+
+fablab (predio E-D)

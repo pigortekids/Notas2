@@ -1,3 +1,10 @@
+/*
+Igor Correa 15.00588-7
+Rodrigo Franciozi 14.04014-0
+Helio Henrique 14.00214-0
+Douglas Rezende 13.02016-0
+*/
+
 /*Douglas*/
 #section1{
     background-image: url('../imagens/bg.jpg');
@@ -114,7 +121,7 @@
     color: whitesmoke;
     font-size: 1.2rem;
     background-color: black;
-    width: 12rem
+    width: 12rem;
 }
 
 #container>p {
