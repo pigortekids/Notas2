@@ -138,6 +138,53 @@
 
 
 
+/*Rodrigo*/
+#section3{
+    background-color: rgb(5, 170, 192);
+    padding: 7% 0% 7% 0%;
+}
+
+#titulo3{
+    color: rgb(225, 238, 255);
+    font-family: 'Oswald', sans-serif;
+}
+
+#titulo31{
+    color: rgb(225, 238, 255);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.7vw;
+}
+
+#subtitulo3{
+    color: rgb(189, 218, 255);
+    padding: 0% 20% 0% 20%;
+}
+
+#subtitulo31{
+    padding: 0% 20% 5% 20%;
+    color: rgb(189, 218, 255);
+    font-size: 1.1vw;
+    padding: 0% 10% 0% 10%;
+}
+
+.num{
+    color:white; 
+    font-size: 2.2vw;
+    margin-left:37%;
+    margin-top:22%;
+}
+
+.circle{
+    width:5vw;
+    height:5vw;
+    border:solid 1px;
+    border-radius:5vw;
+    border-color: white;
+    margin-top:20px;
+    margin-bottom: 25px;
+    margin-left: 40%;
+} 
+
 
 
 /*Igor*/

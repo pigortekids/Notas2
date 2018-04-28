@@ -1,0 +1,13 @@
+a) SELECT idFilme, NomeOriginal, AnoLancamento FROM filme WHERE NomeOriginal LIKE 'Jurassic';
+b) SELECT idFilme, Nome, NomeOriginal, AnoLancamento FROM filme WHERE ( NomeOriginal LIKE 'Jurassic' AND NomeOriginal <> 'Jurassic World' ) ORDER BY AnoLancamento ASC;
+c) SELECT idFilme, NomeOriginal, AnoLancamento FROM filme WHERE ( idFilme <> 11 AND idFilme <> 18 AND idFilme <> 20 AND idFilme <> 25 AND idFilme <> 27 AND idFilme <> 32 AND idFilme <> 46 AND idFilme <> 48 AND idFilme <> 50 );
+d) SELECT idFilme, NomeOriginal, AnoLancamento, Durecao FROM filme WHERE (Duracao >= 180 AND AnoLancamento > 2000 AND AnoLancamento < 2015 );
+e) SELECT idFilme, Nome, NomeOriginal, AnoLancamento, Duracao FROM filme WHERE Nome = NomeOriginal;
+f) SELECT idFilme, NomeOriginal, AnoLancamento, AvaliacaoFilme FROM filme WHERE ( AvaliacaoFilme > 5.0 AND AvaliacaoFilme < 8.0 AND AnoLancamento > 2000 AND AnoLancamento > 2005 );
+g) SELECT idFilme, Nome, Duracao, AnoLancamento FROM filme WHERE Duraca = NULL;
+h) SELECT idFilme, Nome, AnoLancamento, AvaliacaoFilme FROM filme WHERE ( AnoLancamento = 2015 OR AvaliacaoFilme > 8.5 ) ORDER BY ( AnoLancamento DESC, AvaliacaoFilme ASC );
+i) SELECT idFilme, Nome, AnoLancamento, AvaliacaoFilme, Duracao FROM filme WHERE ( ( AnoLancamento = 1995 AND Duracao < 100 ) OR ( AnoLancamento 1994 AND AvaliacaoFilme > 8.4 ) ) ORDER BY AnoLancamento ASC;
+j) SELECT idFilme, Nome, NomeOriginal, AnoLancamento, AvaliacaoFilme FROM filme WHERE ( AnoLancamento >= 2000 ) ORDER BY ( AvaliacaoFilme DESC ) LIMIT 5;
+k) SELECT idFilme, NomeOriginal, FLOOR(AvaliacaoFilme) FROM filme WHERE AnoLancamento = 2015;
+l) SELECT idFilme, NomeOriginal, ROUND(AvaliacaoFilme, 0) FROM filme WHERE ( AnoLancamento > 2010 AND AnoLancamento < 2015 );
+m) SELECT idFilme, NomeOriginal, Cast(Duracao/60 as VARCHAR) + : + Cast(Duracao%60 as VARCHAR) FROM filme ORDER BY Duracao DESC;
