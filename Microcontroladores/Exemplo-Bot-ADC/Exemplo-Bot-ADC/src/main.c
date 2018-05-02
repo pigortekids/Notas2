@@ -1,5 +1,12 @@
 #include <asf.h>
 
+#define 	PWM_CLOCK_DIV_MAX   256
+#define 	PWM_CLOCK_PRE_MAX   11
+#define 	PWM_WPCR_WPCMD_DISABLE_SW_PROT   (PWM_WPCR_WPCMD(0))
+#define 	PWM_WPCR_WPCMD_ENABLE_HW_PROT   (PWM_WPCR_WPCMD(2))
+#define 	PWM_WPCR_WPCMD_ENABLE_SW_PROT   (PWM_WPCR_WPCMD(1))
+#define 	PWM_WPCR_WPKEY_PASSWD   0x50574D00
+
 #define TC			TC0
 #define CHANNEL		0
 #define ID_TC		ID_TC0
@@ -22,6 +29,16 @@
 
 #define ADC_CHANNEL 5
 
+#define CONF_UART              UART0
+#define CONF_UART_BAUDRATE     9600 //velocidade de bits/segundo
+#define CONF_UART_CHAR_LENGTH  US_MR_CHRL_8_BIT //8 bits a cada enviada de informação
+#define CONF_UART_PARITY       US_MR_PAR_NO //sem paridade
+#define CONF_UART_STOP_BITS    US_MR_NBSTOP_1_BIT
+
+#define LED_AZUL IOPORT_CREATE_PIN(PIOA, 19)
+#define LED_VERDE IOPORT_CREATE_PIN(PIOA, 20)
+#define LED_VERMEIO IOPORT_CREATE_PIN(PIOC, 20)
+
 struct ili93xx_opt_t g_ili93xx_display_opt;
 
 /************************************************************************/
@@ -29,6 +46,9 @@ struct ili93xx_opt_t g_ili93xx_display_opt;
 /************************************************************************/
 static void push_button_handle(uint32_t id, uint32_t mask)
 {
+	ioport_set_pin_level(LED_VERDE, 0);
+	delay_ms(500);
+	ioport_set_pin_level(LED_VERDE, 1);
 	adc_start(ADC);
 }
 
@@ -55,7 +75,28 @@ void ADC_Handler(void)
 		// Escreve uma String no LCD na posição 140, 180
 		ili93xx_set_foreground_color(COLOR_BLACK);
 		ili93xx_draw_string(140, 90, (uint8_t*) buffer);
+
+		pwm_channel_t pwm_channel_instance;
+		pwm_channel_instance.channel = PWM_CHANNEL_0;
+		pwm_channel_update_duty(PWM, &pwm_channel_instance, result);
+
 	}
+}
+
+void inicializacao_UART (){
+	
+	static usart_serial_options_t usart_options = {
+		.baudrate = CONF_UART_BAUDRATE,
+		.charlength = CONF_UART_CHAR_LENGTH,
+		.paritytype = CONF_UART_PARITY,
+		.stopbits = CONF_UART_STOP_BITS
+	};
+	usart_serial_init(CONF_UART, &usart_options);
+	stdio_serial_init((Usart *)CONF_UART, &usart_options);
+
+	ioport_set_pin_dir(LED_AZUL, IOPORT_DIR_OUTPUT);
+	ioport_set_pin_dir(LED_VERDE, IOPORT_DIR_OUTPUT);
+	ioport_set_pin_dir(LED_VERMEIO, IOPORT_DIR_OUTPUT);
 }
 
 /************************************************************************/
@@ -194,6 +235,72 @@ void TC_Handler(void)
 	adc_start(ADC);
 }
 
+void configure_pwm()
+{
+	pwm_channel_t pwm_channel_instance;
+	pmc_enable_periph_clk(ID_PWM);
+	pwm_channel_disable(PWM, PWM_CHANNEL_0);
+	pwm_clock_t clock_setting = {
+		.ul_clka = 1000 * 100,
+		.ul_clkb = 0,
+		.ul_mck = 48000000
+	};
+	pwm_init(PWM, &clock_setting);
+	pwm_channel_instance.ul_prescaler = PWM_CMR_CPRE_CLKA;
+	pwm_channel_instance.ul_period = 100;
+	pwm_channel_instance.ul_duty = 50;
+	pwm_channel_instance.channel = PWM_CHANNEL_0;
+	pwm_channel_init(PWM, &pwm_channel_instance);
+
+	pwm_channel_enable_interrupt(PWM, PWM_CHANNEL_0, 0);
+
+}
+
+void PWM_Handler(void)
+{
+
+	/*
+	pwm_channel_t pwm_channel_instance;
+	static uint32_t ul_duty = 0;
+	uint32_t ul_status;
+	static uint8_t uc_count = 0;
+	static uint8_t uc_flag = 1;
+	ul_status = pwm_channel_get_interrupt_status(PWM);
+	if ((ul_status & PWM_CHANNEL_0) == PWM_CHANNEL_0) {
+		uc_count++;
+		if (uc_count == 10) {
+			if (uc_flag) {
+				ul_duty++;
+				if (ul_duty == 100) {
+					uc_flag = 0;
+				}
+				} else {
+				ul_duty--;
+				if (ul_duty == 0) {
+					uc_flag = 1;
+				}
+			}
+			uc_count = 0;
+			pwm_channel_instance.channel = PWM_CHANNEL_0;
+			pwm_channel_update_duty(PWM, &pwm_channel_instance, ul_duty);
+			ioport_set_pin_level(LED_AZUL, 0);
+		}
+	}*/
+	
+	uint32_t ul_status;
+	ul_status = pwm_channel_get_interrupt_status(PWM);
+	if ((ul_status & PWM_CHANNEL_0) == PWM_CHANNEL_0) {
+		ioport_set_pin_level(LED_AZUL, 0);
+	}
+	/*
+	
+	uint32_t ul_status;
+	ul_status = pwm_channel_get_interrupt_status(PWM);
+	if ((ul_status & PWM_CHANNEL_0) == PWM_CHANNEL_0) {
+		ioport_set_pin_level(LED_AZUL, 0);
+	}*/
+	
+}
 
 
 /************************************************************************/
@@ -208,16 +315,13 @@ int main(void)
 	configure_adc();
 	configure_botao();
 	tc_config(50);
-
-	/** Draw text on the LCD */
-	ili93xx_set_foreground_color(COLOR_BLACK);
-	ili93xx_draw_string(10, 20, (uint8_t *)"Aula - ADC");
-
+	configure_pwm();
+	inicializacao_UART();
 
 	int i = 0;
 	while (1) {
 
-	/*
+	
 		ili93xx_set_foreground_color(COLOR_WHITE);
 		ili93xx_draw_filled_rectangle(170, 170, 230, 230);
 		ili93xx_set_foreground_color(COLOR_BLACK);
@@ -240,6 +344,6 @@ int main(void)
 				break;
 		}
 		delay_ms(100);
-	*/
+	
 	}
 }
