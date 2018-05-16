@@ -1,0 +1,54 @@
+#Importação de módulos
+import pygame as pg
+from pygame.locals import * 
+
+# Inicialização
+pg.init()
+
+# Tela
+ScreenX, ScreenY = (800, 600)
+screen = pg.display.set_mode( (ScreenX, ScreenY) )
+
+# Clock
+clock = pg.time.Clock()
+
+# Variáveis 
+rodando = True
+RED = (255,0,0)
+GREEN = (0,255,0)
+BLUE = (0,0,255)
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+PSIZE = 50
+
+class Jogador(pg.sprite.Sprite):
+    def __init__(self):
+        self.image = pg.Surface((PSIZE,PSIZE))
+        self.image.fill( RED )
+        self.rect = self.image.get_rect()
+        self.rect.centerx = ScreenX/2
+        self.rect.centery = ScreenY/2
+
+
+j1 = Jogador()
+
+# Game loop
+while rodando == True:
+    clock.tick(60)
+    # Eventos
+    for evt in pg.event.get():
+        if evt.type == pg.QUIT:
+            rodando = False
+        if evt.type == pg.KEYUP:
+            if evt.key == K_ESCAPE:
+                rodando = False
+    
+    # Atualização
+
+    # Desenhar
+    screen.fill(WHITE)
+    screen.blit(j1.image, j1.rect.center)
+    pg.display.blit()
+
+
+pg.quit()

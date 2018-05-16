@@ -1,0 +1,18 @@
+{
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./Jump",
+        "-p",
+        "*test.py"
+    ],
+    "python.unitTest.unittestEnabled": false,
+    "python.pythonPath": "D:\\Program Files (x86)\\Python36-32\\python.exe",
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.pyTestArgs": [
+        "__pycache__"
+    ],
+    "python.unitTest.nosetestArgs": [],
+    "python.unitTest.promptToConfigure": false
+}
