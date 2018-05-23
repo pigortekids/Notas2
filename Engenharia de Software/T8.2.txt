@@ -1,0 +1,64 @@
+package maua;
+
+public class Empregado{
+
+	private String nome;
+	private String endereco;
+	private double valorHora;
+	private integer qntHorasMes;
+
+	public Empregado(String nome, String endereco, double valorHora, integer qntHorasMes) {
+			this.nome = nome;
+			this.endereco = endereco;
+			this.valorHora = valorHora;
+			this.qntHorasMes = qntHorasMes;
+	}
+	
+	public void ImprimeEmpregado(){
+		System.out.println("Nome: " + this.nome + "\nEndereço: " + this.endereco +
+		"\nvalor da hora: " + this.valorHora + "\nquqntidade de horas trabalhadas no mês: " + this.qntHorasMes);
+	}
+	
+	public double CalculaSalario(){
+		return (this.valorHora * this.qntHorasMes);
+	}
+	
+	public void ImprimeSalario(){
+		System.out.println("Nome: " + this.nome + "\nSalário: " + this.CalculaSalario());
+	}
+	
+}
+
+public class Gerente extends Empregado{
+	
+	private String nomeSecretaria;
+	private double bonus;
+	
+	public Gerente(String nome, String endereco, double valorHora, integer qntHorasMes,
+		String nomeSecretaria, double bonus){
+		super(nome, endereco, valorHora, qntHorasMes);
+		this.nomeSecretaria = nomeSecretaria;
+		this.bonus = bonus;
+	}
+	
+	public void ImprimeGerente(){
+		this.ImprimeEmpregado();
+		System.out.println("\nNome da Secretaria: " + this.nomeSecretaria + "\nValor do Bônus: " + this.bonus);
+	}
+	
+	public double CalculaSalario(){
+		return (this.valorHora * this.qntHorasMes) + this.bonus;
+	}
+	
+}
+
+public class TesteGerente {
+	public static void main(String[] args) {
+		Empregado empregado = new Empregado("Antonio", "Rua Brasil, 130", 50.0, 230);
+		empregado.ImprimeEmpregado();
+		empregado.ImprimeSalario();
+		Gerente gerente = new Gerente("Carlos", "Rua Silvio Torres, 36", 50.0, 230, "Ana", 2000.0);
+		gerente.ImprimeGerente();
+		gerente.ImprimeSalario();
+	}
+}

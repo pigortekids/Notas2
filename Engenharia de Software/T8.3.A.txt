@@ -1,0 +1,32 @@
+package maua;
+
+public class Box_Int{
+
+	private int item1;
+	private int item2;
+
+	public Box_Int(int item1, int item2) {
+			this.item1 = item1;
+			this.item2 = item2;
+	}
+	
+	public void ImprimeBoxInt(){
+		System.out.println("item1: " + this.item1 + "\nitem2: " + this.item2);
+	}
+	
+	public void AlteraItem1(int item1){
+		this.item1 = item1;
+	}
+	
+	public void AlteraItem2(int item2){
+		this.item2 = item2;
+	}
+	
+}
+
+public class TesteBoxInt {
+	public static void main(String[] args) {
+		Box_Int x = new Box_Int(10, 20);
+		Box_Int y = new Box_Int(33, 55);
+	}
+}

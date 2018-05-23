@@ -1,0 +1,32 @@
+package maua;
+
+public class Box_String{
+
+	private String item1;
+	private String item2;
+
+	public Box_String(String item1, String item2) {
+			this.item1 = item1;
+			this.item2 = item2;
+	}
+	
+	public void ImprimeBoxString(){
+		System.out.println("item1: " + this.item1 + "\nitem2: " + this.item2);
+	}
+	
+	public void AlteraItem1(String item1){
+		this.item1 = item1;
+	}
+	
+	public void AlteraItem2(String item2){
+		this.item2 = item2;
+	}
+	
+}
+
+public class TesteBoxString {
+	public static void main(String[] args) {
+		Box_Int x = new Box_Int("MAUA", "Computação");
+		Box_Int y = new Box_Int("Corinthians", "Palmeiras");
+	}
+}

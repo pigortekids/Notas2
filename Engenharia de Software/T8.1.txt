@@ -1,0 +1,133 @@
+package maua;
+
+public interface RegrasEscola {
+
+	static final int LimiteFaltas = 10;
+	static final double MediaAprovacao = 6.0;
+
+	double RetornaMedia();
+}
+
+public class Pessoa{
+
+	private String nome;
+	private String endereco;
+	private String cpf;
+	private String rg;
+
+	public Pessoa(String nome, String endereco, String cpf, String rg) {
+			this.nome = nome;
+			this.endereco = endereco;
+			this.cpf = cpf;
+			this.rg = rg;
+	}
+	
+	public void ImprimePessoa(){
+		System.out.println("Nome: " + this.nome + "\nEndereço: " + this.endereco +
+		"\nCPF: " + this.cpf + "\nRG: " + this.rg)
+	}
+	
+}
+
+public class AlunoColegio extends Pessoa implements RegrasEscola{
+	
+	private double notaP1;
+	private double notaP2;
+	private double notaP3;
+	private int totalFaltas;
+	
+	public AlunoColegio(String nome, String endereco, String cpf, String rg,
+		double notaP1, double notaP2, double notaP2, integer totalFaltas){
+		super(nome, endereco, cpf, rg);
+		this.notaP1 = notaP1;
+		this.notaP2 = notaP2;
+		this.notaP3 = notaP3;
+		this.totalFaltas = totalFaltas;
+	}
+	
+	public void ImprimeAluno(){
+		this.ImprimePessoa();
+		System.out.println("Nota P1: " + this.notaP1 + "\nNota P2: " + this.notaP2 +
+		"\nNota P3: " + this.notaP3 + "\nTotal de faltas: " + this.totalFaltas)
+	}
+	
+	public double RetornaMedia(){
+		return (this.notaP1 + this.notaP2 + this.notaP3) / 3.0;
+	}
+	
+	public void ImprimeResultado(){
+		if (this.totalFaltas > this.LimiteFaltas){
+			System.out.println("Reprovado por faltas...");
+		}else{
+			if (this.RetornaMedia() >= 6.0) {
+				System.out.println("Aprovado ");
+			}else{
+				System.out.println("Reprovado ");
+			}
+			System.out.println("com média " + this.RetornaMedia());
+		}
+	}
+	
+}
+
+public class AlunoFaculdade extends Pessoa implements RegrasEscola{
+	
+	private double notaP1;
+	private double notaP2;
+	private double notaP3;
+	private int totalFaltas;
+	
+	public AlunoFaculdade(String nome, String endereco, String cpf, String rg,
+		double notaP1, double notaP2, double notaP2, integer totalFaltas){
+		super(nome, endereco, cpf, rg);
+		this.notaP1 = notaP1;
+		this.notaP2 = notaP2;
+		this.notaP3 = notaP3;
+		this.totalFaltas = totalFaltas;
+	}
+	
+	public void ImprimeAluno(){
+		this.ImprimePessoa();
+		System.out.println("Nota P1: " + this.notaP1 + "\nNota P2: " + this.notaP2 +
+		"\nNota P3: " + this.notaP3 + "\nTotal de faltas: " + this.totalFaltas)
+	}
+	
+	public double RetornaMedia(){
+		double resultado;
+		if ((this.notaP1 >= this.notaP3) && (this.notaP2 >= this.notaP3)){
+			resultado = (this.notaP1 + this.notaP2) / 2.0;
+		}else if ((this.notaP1 >= this.notaP2) && (this.notaP3 >= this.notaP2)){
+			resultado = (this.notaP1 + this.notaP3) / 2.0;
+		}else{
+			resultado = (this.notaP2 + this.notaP3) / 2.0;
+		}
+		return resultado;
+	}
+	
+	public void ImprimeResultado(){
+		if (this.totalFaltas > this.LimiteFaltas){
+			System.out.println("Reprovado por faltas...");
+		}else{
+			if (this.RetornaMedia() >= 6.0) {
+				System.out.println("Aprovado ");
+			}else{
+				System.out.println("Reprovado ");
+			}
+			System.out.println("com média " + this.RetornaMedia());
+		}
+	}
+	
+}
+
+public class TesteAluno {
+	public static void main(String[] args) {
+		AlunoColegio alunoColegio = new AlunoColegio("Paulo de Souza", "Rua x, 123", "234.567.876-10",
+			"5.345.234-9", 7.0, 8.0, 9.0, 10);
+		AlunoFaculdade alunoFaculdade = new AlunoFaculdade("Ana Carolina Silva", "Rua y 3459", "123.009.459-12",
+			"9.098.287-9", 1.5, 5.0, 6.0, 10);
+		alunoColegio.ImprimeAluno();
+		alunoColegio.ImprimeResultado();
+		alunoFaculdade.ImprimeAluno();
+		alunoFaculdade.ImprimeResultado();
+	}
+}
