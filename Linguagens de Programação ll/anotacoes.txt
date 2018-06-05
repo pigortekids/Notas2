@@ -23,3 +23,15 @@ https://getbootstrap.com/
 
 https://bcrypt-generator.com/
 http://hashids.org/javascript/
+
+https://www.npmjs.com/
+npm init
+npm install
+npm install --prod
+npm install --dev
+-no própro PC:
+npm install -g <package/toll>
+-no projeto:
+npm install -- save-prod <package> --> produção (se depende pra rodar o site)
+npm install -- save <package>
+npm install -- save-dev <package> --> desenvolvimento (se não depende mas ajuda no desenvolvimento)
