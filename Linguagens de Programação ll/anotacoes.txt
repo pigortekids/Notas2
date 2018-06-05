@@ -32,6 +32,9 @@ npm install --dev
 -no própro PC:
 npm install -g <package/toll>
 -no projeto:
-npm install -- save-prod <package> --> produção (se depende pra rodar o site)
-npm install -- save <package>
-npm install -- save-dev <package> --> desenvolvimento (se não depende mas ajuda no desenvolvimento)
+npm install --save-prod <package> --> produção (se depende pra rodar o site)
+npm install --save <package>
+npm install --save-dev <package> --> desenvolvimento (se não depende mas ajuda no desenvolvimento)
+
+npm install -g gulp
+gulp -v
