@@ -1,5 +1,6 @@
 #Importação de módulos
 import pygame as pg
+import numpy as np
 from pygame.locals import *
 import random
 
@@ -14,12 +15,18 @@ WHITE = (255, 255, 255)
 clickX = 0
 clickY = 0
 
+s = (30,30)
+linhasHorizontais = np.zeros(s)
+s = (30,30)
+linhasVerticais = np.zeros(s)
+
 # Inicialização
 pg.init()
 
 # Quadrado
 quadrado = pg.Surface((LADO,LADO))
 quadrado.fill(BLACK)
+quadradoMaior = pg.Surface((DISTANCIAQUADRADOS-6, DISTANCIAQUADRADOS-6))
 
 # Tela
 ScreenX, ScreenY = (610, 610)
@@ -69,6 +76,56 @@ def pcJoga():
     pg.draw.line(screen, RED, (x1, y1), (x2, y2), 7)
     pg.display.flip()
 
+def confereQuadrado(x, y, jogador):
+    if jogador == 0:
+        quadradoMaior.fill(BLUE)
+    else:
+        quadradoMaior.fill(RED)
+    #confere se fez na horizontal
+    if clickX - x2 == 0:
+        #confere se clicou de cima para baixo
+        if y2 < clickY:
+            if linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS) + 1, int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) + 1] == 1:
+                    if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                        screen.blit(quadradoMaior, (x2 + 3, y2 + 3))
+            elif linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS) - 1, int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS) - 1, int((y2-3)/DISTANCIAQUADRADOS) + 1] == 1:
+                    if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS) - 1, int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                        screen.blit(quadradoMaior, (x2 + 3 - 30, y2 + 3))
+        #confere se clicou de baixo para cima
+        else:
+            if linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS) + 1, int((clickY-3)/DISTANCIAQUADRADOS)] == 1:
+                if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS) , int((clickY-3)/DISTANCIAQUADRADOS) + 1] == 1:
+                   if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((clickY-3)/DISTANCIAQUADRADOS)] == 1:
+                        screen.blit(quadradoMaior, (x2 + 3, clickY + 3))
+            elif linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS) - 1, int((clickY-3)/DISTANCIAQUADRADOS)] == 1:
+                if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS) - 1, int((clickY-3)/DISTANCIAQUADRADOS) + 1] == 1:
+                   if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS) - 1, int((clickY-3)/DISTANCIAQUADRADOS)] == 1:
+                        screen.blit(quadradoMaior, (x2 + 3 - 30, clickY + 3))
+    #confere se fez na vertical
+    else:
+        #confere se clicou da direita para a esquerda
+        if x2 < clickX:
+            if linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) + 1] == 1:
+                if linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                    if linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS) + 1, int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                        screen.blit(quadradoMaior, (x2 + 3, y2 + 3))
+            elif linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) - 1] == 1:
+                if linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) - 1] == 1:
+                    if linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS) + 1, int((y2-3)/DISTANCIAQUADRADOS) - 1] == 1:
+                        screen.blit(quadradoMaior, (x2 + 3, y2 + 3 - 30))
+        #confere se clicou da esquerda para a direita
+        else:
+            if linhasHorizontais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) + 1] == 1:
+                if linhasVerticais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                    if linhasVerticais[int((clickX-3)/DISTANCIAQUADRADOS) + 1, int((y2-3)/DISTANCIAQUADRADOS)] == 1:
+                        screen.blit(quadradoMaior, (clickX + 3, y2 + 3))
+            elif linhasHorizontais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) - 1] == 1:
+                if linhasVerticais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS) - 1] == 1:
+                    if linhasVerticais[int((clickX-3)/DISTANCIAQUADRADOS) + 1, int((y2-3)/DISTANCIAQUADRADOS) - 1] == 1:
+                        screen.blit(quadradoMaior, (clickX + 3, y2 + 3 - 30))
+
 while (1):
     clock.tick(60)
     for evt in pg.event.get():
@@ -91,6 +148,17 @@ while (1):
                 y2 = pg.mouse.get_pos()[1] % DISTANCIAQUADRADOS
                 y2 = pg.mouse.get_pos()[1] - y2 + 3
                 pg.draw.line(screen, BLUE, (clickX, clickY), (x2, y2), 7)
+                if clickX - x2 == 0:
+                    if y2 < clickY:
+                        linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                    else:
+                        linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((clickY-3)/DISTANCIAQUADRADOS)] = 1
+                else:
+                    if x2 < clickX:
+                        linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                    else:
+                        linhasHorizontais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                confereQuadrado(x2, y2, 0)
                 pg.display.flip()
                 clickX = 0
                 clickY = 0
