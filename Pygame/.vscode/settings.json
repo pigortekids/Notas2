@@ -14,5 +14,6 @@
         "__pycache__"
     ],
     "python.unitTest.nosetestArgs": [],
-    "python.unitTest.promptToConfigure": false
+    "python.unitTest.promptToConfigure": false,
+    "python.linting.pylintEnabled": false
 }
