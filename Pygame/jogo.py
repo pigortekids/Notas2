@@ -6,8 +6,8 @@ import random
 
 #definções de variaveis globais
 LADO = 7
-LADOCAMPO = 19
-DISTANCIAQUADRADOS = 30
+LADOCAMPO = 10
+DISTANCIAQUADRADOS = LADOCAMPO * 5
 RED = (255,0,0)
 GREEN = (0,255,0)
 BLUE = (0,0,255)
@@ -15,6 +15,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 clickX = 0
 clickY = 0
+jogador = 1
 
 #criando matriz para registrar onde tem as linhas horizontais e verticais
 #valor de 30 é exagerado, podia ser menor
@@ -42,52 +43,10 @@ pg.display.flip()
 # Clock
 clock = pg.time.Clock()
 
-def pcJoga():
-    #inventa valores para o PC jogar
-    x1 = random.randrange(1, LADOCAMPO+1) * DISTANCIAQUADRADOS + 3
-    y1 = random.randrange(1, LADOCAMPO+1) * DISTANCIAQUADRADOS + 3
-    escolha = random.randrange(1, 5)
-
-    #confere a escolha do pc (qual lado que ele vai desenhar a partir da primeira posição)
-    if escolha == 1:
-        if x1 == (LADOCAMPO * DISTANCIAQUADRADOS + 3):
-            x2 = x1 - DISTANCIAQUADRADOS
-        else:
-            x2 = x1 + DISTANCIAQUADRADOS
-        y2 = y1
-    elif escolha == 2:
-        if x1 == (1 * DISTANCIAQUADRADOS + 3):
-            x2 = x1 + DISTANCIAQUADRADOS
-        else:
-            x2 = x1 - DISTANCIAQUADRADOS
-        y2 = y1
-    elif escolha == 3:
-        x2 = x1
-        if y1 == (LADOCAMPO * DISTANCIAQUADRADOS + 3):
-            y2 = y1 - DISTANCIAQUADRADOS
-        else:
-            y2 = y1 + DISTANCIAQUADRADOS
-    else:
-        x2 = x1
-        if y1 == (1 * DISTANCIAQUADRADOS + 3):
-            y2 = y1 + DISTANCIAQUADRADOS
-        else:
-            y2 = y1 - DISTANCIAQUADRADOS
-
-    #depois de decidir tudo, faz a jogada d PC
-    pg.draw.line(screen, RED, (x1, y1), (x2, y2), 7)
-    #adiciona valor nas variaveis click para rodar a rotina do quadrado
-    clickX = x1
-    clickY = y1
-    confereQuadrado(x2, y2, 1)
-    clickX = 0
-    clickY = 0
-    pg.display.flip()
-
 #confere se o quadrado foi preenchido para poder pintar ele
 def confereQuadrado(x, y, jogador):
     #se o jogador for 0, pita de azul, se não, pinta de vermelho
-    if jogador == 0:
+    if jogador == 1:
         quadradoMaior.fill(BLUE)
     else:
         quadradoMaior.fill(RED)
@@ -165,20 +124,34 @@ while (1):
                 x2 = pg.mouse.get_pos()[0] - x2 + 3
                 y2 = pg.mouse.get_pos()[1] % DISTANCIAQUADRADOS
                 y2 = pg.mouse.get_pos()[1] - y2 + 3
-                pg.draw.line(screen, BLUE, (clickX, clickY), (x2, y2), 7)
-                #registra os valores nas matrizes das linhas
-                if clickX - x2 == 0:
-                    if y2 < clickY:
-                        linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
-                    else:
-                        linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((clickY-3)/DISTANCIAQUADRADOS)] = 1
+                if abs(clickX - x2) > DISTANCIAQUADRADOS or abs(clickY - y2) > DISTANCIAQUADRADOS:
+                    clickX = 0
+                    clickY = 0
                 else:
-                    if x2 < clickX:
-                        linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                    if jogador == 1:
+                        pg.draw.line(screen, BLUE, (clickX, clickY), (x2, y2), 7)
                     else:
-                        linhasHorizontais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
-                confereQuadrado(x2, y2, 0)
-                pg.display.flip()
-                clickX = 0
-                clickY = 0
-                pcJoga()
+                        pg.draw.line(screen, RED, (clickX, clickY), (x2, y2), 7)
+                    #registra os valores nas matrizes das linhas
+                    if clickX - x2 == 0:
+                        if y2 < clickY:
+                            linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                        else:
+                            linhasVerticais[int((x2-3)/DISTANCIAQUADRADOS), int((clickY-3)/DISTANCIAQUADRADOS)] = 1
+                    else:
+                        if x2 < clickX:
+                            linhasHorizontais[int((x2-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                        else:
+                            linhasHorizontais[int((clickX-3)/DISTANCIAQUADRADOS), int((y2-3)/DISTANCIAQUADRADOS)] = 1
+                    #confere se o quadrado foi preenchido
+                    confereQuadrado(x2, y2, jogador)
+                    #pinta a tela
+                    pg.display.flip()
+                    #reseta os valores das variaveis de click
+                    clickX = 0
+                    clickY = 0
+                    #troca a jogada do jogador
+                    if jogador == 1:
+                        jogador = 0
+                    else:
+                        jogador = 1

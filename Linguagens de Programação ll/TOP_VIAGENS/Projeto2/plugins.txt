@@ -1,0 +1,13 @@
+###############################################
+
+# NOME: Igor Correa
+
+# Plugin 1 - nome: pickadate.js
+
+# URL Plugin 1: http://amsul.ca/pickadate.js/
+
+# Plugin 2 - nome: FakeLoader.js
+
+# URL Plugin 2: http://joaopereirawd.github.io/fakeLoader.js/
+
+###############################################
