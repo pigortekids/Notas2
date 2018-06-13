@@ -6,6 +6,10 @@ src\ASF\common\utils\stdio\read.c
 
 src\ASF\common\utils\stdio\write.c
 
+src\ASF\sam\drivers\adc\adc.c
+
+src\ASF\sam\drivers\adc\adc_sam3u.c
+
 src\ASF\sam\drivers\usart\usart.c
 
 src\ASF\common\services\serial\usart_serial.c

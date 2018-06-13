@@ -1,0 +1,14 @@
+umidade
+PA16 --> D0
+
+protocolos i2c e spi
+
+temperatura / pressão
+-40°C --> 85°C
+300hPa --> 1100hPa
+PA17 --> ADC CHANNEL 0
+https://img.filipeflop.com/files/download/Datasheet-BMP280-DS001-11.pdf
+https://www.arduinoecia.com.br/2017/04/bmp280-pressao-temperatura-altitude.html
+
+fumaça
+PA18

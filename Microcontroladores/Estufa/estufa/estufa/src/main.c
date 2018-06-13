@@ -15,6 +15,13 @@ struct ili93xx_opt_t g_ili93xx_display_opt;
 #define UMIDADE IOPORT_CREATE_PIN(PIOA, 16)
 #define FUMACA IOPORT_CREATE_PIN(PIOA, 18)
 
+#define VOLT_REF        (3300) // Reference voltage for ADC,in mv
+#define TRACKING_TIME    15 // Tracking Time
+#define TRANSFER_PERIOD  2 // Transfer Period
+#define STARTUP_TIME ADC_STARTUP_TIME_4 // Startup Time
+#define MAX_DIGITAL     (4095) // The maximal digital value
+#define ADC_CHANNEL 0 //PIOA 17
+
 void configure_lcd()
 {
 	//para pegar as anotações dessa inicialização, vá no "Exemplo-Bot-ADC"
@@ -45,13 +52,6 @@ void configure_lcd()
 	ili93xx_set_cursor_position(0, 0);
 }
 
-void printAlgo(char palavra[]){
-	ili93xx_set_foreground_color(COLOR_WHITE);
-	ili93xx_draw_filled_rectangle(0, 0, 200, 200);
-	ili93xx_set_foreground_color(COLOR_BLACK);
-	ili93xx_draw_string(20, 20, (uint8_t*) palavra);
-}
-
 void inicializacao_UART (){
 	
 	static usart_serial_options_t usart_options = {
@@ -64,6 +64,44 @@ void inicializacao_UART (){
 	stdio_serial_init((Usart *)CONF_UART, &usart_options);
 }
 
+void configure_adc(void)
+{
+	pmc_enable_periph_clk(ID_ADC);
+	adc_init(ADC, sysclk_get_cpu_hz(), 6400000, STARTUP_TIME);
+	adc_configure_timing(ADC, TRACKING_TIME	, ADC_SETTLING_TIME_3, TRANSFER_PERIOD);
+	adc_configure_trigger(ADC, ADC_TRIG_SW, 0);
+	/* Enable channel for potentiometer. */
+	adc_enable_channel(ADC, ADC_CHANNEL);
+	NVIC_SetPriority(ADC_IRQn, 5);
+	NVIC_EnableIRQ(ADC_IRQn);
+	adc_enable_interrupt(ADC, ADC_IER_DRDY);
+}
+
+void printAlgo(char palavra[]){
+	ili93xx_set_foreground_color(COLOR_WHITE);
+	ili93xx_draw_filled_rectangle(0, 0, 200, 200);
+	ili93xx_set_foreground_color(COLOR_BLACK);
+	ili93xx_draw_string(20, 20, (uint8_t*) palavra);
+}
+
+void ADC_Handler(void)
+{
+	uint16_t result;
+
+	if ((adc_get_status(ADC) & ADC_ISR_DRDY) == ADC_ISR_DRDY)
+	{
+		// Recupera o último valor da conversão
+		result = adc_get_latest_value(ADC);
+		
+		//result = (result * 125) / 4095; //conversão para temperatura em °C
+		
+		char buffer[10];
+		sprintf (buffer, "%i", result);
+		printAlgo(buffer);
+		
+	}
+}
+
 int main (void)
 {
 	sysclk_init();
@@ -71,14 +109,15 @@ int main (void)
 	configure_lcd();
 	ioport_init();
 	inicializacao_UART();
+	configure_adc();
 	
-	//seta os leds aul, verde e vermelho, e depois liga todos
+	//seta os leds aul, verde e vermelho, e depois desliga todos
 	ioport_set_pin_dir(LED_AZUL, IOPORT_DIR_OUTPUT);
-	ioport_set_pin_level(LED_AZUL, 0);
+	ioport_set_pin_level(LED_AZUL, 1);
 	ioport_set_pin_dir(LED_VERDE, IOPORT_DIR_OUTPUT);
-	ioport_set_pin_level(LED_VERDE, 0);
+	ioport_set_pin_level(LED_VERDE, 1);
 	ioport_set_pin_dir(LED_VERMEIO, IOPORT_DIR_OUTPUT);
-	ioport_set_pin_level(LED_VERMEIO, 1);
+	ioport_set_pin_level(LED_VERMEIO, 0);
 	
 	//seta o PA16 como entrada de dados com PULLUP
 	ioport_set_pin_dir(UMIDADE, IOPORT_DIR_INPUT);
@@ -112,8 +151,11 @@ int main (void)
 			i = 0;
 			break;
 		}
-		delay_ms(100);
+		delay_ms(300);
 		
+		adc_start(ADC);
+		
+		/*
 		//quando estiver umido, vai acender o led azul
 		if (!ioport_get_pin_level(UMIDADE)){
 			ioport_set_pin_level(LED_AZUL, 0);
@@ -121,20 +163,24 @@ int main (void)
 			ioport_set_pin_level(LED_AZUL, 1);
 		}
 		
+		//quando tiver fumaça, acende o led azul
 		if (ioport_get_pin_level(FUMACA)){
 			ioport_set_pin_level(LED_AZUL, 0);
 			}else{
 			ioport_set_pin_level(LED_AZUL, 1);
 		}
+		*/
 		
+		/*
 		//UART Bluetooth
-		/*key = getchar(); //espera uma char
+		key = getchar(); //espera uma char
 		switch(key){
 			case 'A':
 				printAlgo(algo); break;
 			default:
 				puts("BURRO!!!"); break;
-		}*/
+		}
+		*/
 	}
 
 }
