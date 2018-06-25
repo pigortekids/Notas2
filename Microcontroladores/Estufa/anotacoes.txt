@@ -12,3 +12,12 @@ https://www.arduinoecia.com.br/2017/04/bmp280-pressao-temperatura-altitude.html
 
 fumaça
 PA18
+
+pote H:
+http://tronixstuff.com/2014/11/25/tutorial-l298n-dual-motor-controller-modules-and-arduino/
+marrom na entrada 1 +
+azul na entrada 2 -
+entrada 4 power supply de 12 V
+entrada 5 GND
+entrada do PWN pino 7
+pino 8 no high e 9 no low gira pra um lado, e ao contrario gira para o outro lado
