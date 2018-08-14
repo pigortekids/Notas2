@@ -1,0 +1,3 @@
+Xampp
+\xampp\htdocs
+localhost ou 127.0.0.1

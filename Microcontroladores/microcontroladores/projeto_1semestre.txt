@@ -1,0 +1,30 @@
+descrição:
+sensor de humidade: se estiver seco ativar uma porta com um motor para se abrir e jogar água na planta por um determinado periodo de tempo. 
+sensor de luminosidade: caso tenha baixa luz, ligar leds de alta potência, alterando a luminosidade do local
+sensor de temperatura e sensor de fumaça: para informar o dono da estufa sobre baixa ou alta temperatura, e se tiver muita fumaça no ambiente via bluetooth
+acelerometro: mostrar se a planta foi derrubada.
+presença: mostrar no display e via bluetooth a que alguem está por perto.
+
+
+ANOTAÇÕES:
+
+
+Sensores:
+sensor de luminosidade LDR 5mm
+bluetooth HC 08
+sensor de temperatura (BME 280 / BMP 280)
+sensor de fumaça (MQ2)
+leds
+sensor de humidade
+bomba
+acelerometro
+
+
+fablab (predio E-D)
+
+datasheets:
+https://cdn-learn.adafruit.com/downloads/pdf/adafruit-bmp280-barometric-pressure-plus-temperature-sensor-breakout.pdf
+https://www.pololu.com/file/0J309/MQ2.pdf
+https://www.robocore.net/upload/attachments/sensor_ldr_gl5528_145.pdf
+http://www.wavesen.com/mysys/db_picture/news3/2015121885146101.pdf
+
