@@ -1,0 +1,16 @@
+BOTÕES:
+https://produto.mercadolivre.com.br/MLB-898211130-kit-arcade-fliperama-10-botoes-de-acrilico-black-aegir-_JM#reco_item_pos=0&reco_backend=machinalis-seller-items&reco_backend_type=low_level&reco_client=vip-seller_items-above&reco_id=2180094e-df46-4722-8e01-c25a23e94fba
+Kit Arcade Fliperama 10 Botões De Acrilico Black Aegir
+
+
+PYGAME PRA RASPBERRY:
+$ sudo apt-get install mercurial 
+$ hg clone https://bitbucket.org/pygame/pygame
+$ cd pygame
+
+$ sudo apt-get install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev 
+$ sudo apt-get install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
+$ sudo apt-get install python3-dev python3-numpy
+
+$ python3 setup.py build 
+$ sudo python3 setup.py install
