@@ -1,3 +1,16 @@
 Xampp
 \xampp\htdocs
 localhost ou 127.0.0.1
+
+postman para mandar um POST
+
+CRUD(CREATE, RED, UPDATE, DELETE)
+
+
+
+
+
+
+
+POST e PUT (pesquisar)
+SQL injection (computerphile)
