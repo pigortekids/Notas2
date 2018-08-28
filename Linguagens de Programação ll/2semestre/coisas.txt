@@ -2,10 +2,13 @@ Xampp
 \xampp\htdocs
 localhost ou 127.0.0.1
 
-postman para mandar um POST
+postman para mandar um POST com JSON
 
 CRUD(CREATE, RED, UPDATE, DELETE)
 
+mdm.status code list
+
+.php?nome=exemplo
 
 
 
