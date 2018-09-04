@@ -7,11 +7,9 @@ $body = file_get_contents('php://input');
 $body = trim($body);
 $obj = json_decode($body,true);
 
-echo("Ola");
-
-$cpf = $obj["cpf"];
 $nome = $obj["nome"];
-$idade = $obj["idade"];
+$autor = $obj["autor"];
+$genero = $obj["genero"];
 
 $host = '127.0.0.1:3307';
 $db   = 'biblioteca';
@@ -20,14 +18,15 @@ $pass = '';
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
-try {
+try 
+    {
     $pdo = new PDO($dsn, $user, $pass);
 
-    $stmt = $pdo->prepare("INSERT INTO tbl_cliente (cpf, nome, idade) VALUES (:CPF, :NOME, :IDADE)");
+    $stmt = $pdo->prepare("INSERT INTO tbl_livro (nome, autor, genero) VALUES (:NOME, :AUTOR, :CLIENTE)");
 
-    $stmt->bindParam(":CPF", $cpf);
     $stmt->bindParam(":NOME", $nome);
-    $stmt->bindParam(":IDADE", $idade);
+    $stmt->bindParam(":AUTOR", $autor);
+    $stmt->bindParam(":CLIENTE", $genero);
 
     $stmt->execute();
 
