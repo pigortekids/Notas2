@@ -1,0 +1,44 @@
+1-
+package maua;
+
+public class TestHash {
+
+	public static void main(String[] args) {
+		int[] tabKeys = new int[20];
+		for ( int i = 1 ; i < 20 ; i ++ ) {
+			tabKeys[i] = i
+			
+		}
+		List<int> tabHash = new ArrayList<int>();
+		for ( int i = 1 ; i < 20 ; i ++ ) {
+			tabHash = SList.InsereInicio(tabKeys[i])
+		}
+	}
+
+	public static Integer hash(Integer key) {
+		return (key % 10);
+	}
+
+}
+
+public static class SList {
+
+	List<int> lista = new ArrayList<int>();
+
+	public SList(List<int> listaPassada){
+		for ( int i = 0 ; i < listaPassada).size() ; i ++ ) {
+			lista.add(listaPassada.get(i);
+		}
+	}
+
+	public static List<int> InsereInicio(int chave){
+		if ( lista.contains(chave) ) {
+			lista[chave].append(chave);
+		}
+		else {
+			lista.append(chave);
+		}
+		return lista;
+	}
+
+}

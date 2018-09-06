@@ -1,0 +1,8 @@
+3 -
+public static Integer hash(Integer key){
+	return = key % 10;
+}
+
+5 - Houve, nos códigos 60, 44, 80 e 90.
+6 - Avisando o usuário sobre quais códigos colidiram.
+7 - Tentar alocar a chave no proximo valor inteiro possivel.

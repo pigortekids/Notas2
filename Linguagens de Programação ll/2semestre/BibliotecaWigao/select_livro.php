@@ -9,12 +9,31 @@ $body = trim($body);
 $obj = json_decode($body,true);
 
 #Setting up variables
-$cpf = $obj["cpf"];
 $nome = $obj["nome"];
-$idade = $obj["idade"];
+$autor = $obj["autor"];
+$genero = $obj["genero"];
 
 #Creating query
-$query = "INSERT INTO tbl_cliente (cpf, nome, idade) VALUES (:CPF, :NOME, :IDADE)";
+$query = "SELECT nome, autor, genero FROM tbl_livro WHERE (";
+$have_statment_before = false;
+if ($nome != ""){
+    $query += "nome = LIKE %:NOME%";
+    $have_statment_before = true;
+}
+if ($autor != ""){
+    if ($have_statment_before){
+        $query += " AND ";
+    }
+    $query += "autor = LIKE %:AUTOR%";
+    $have_statment_before = true;
+}
+if ($genero != ""){
+    if ($have_statment_before){
+        $query += " AND ";
+    }
+    $query += "genero = like %:GENERO%";
+}
+$query += ");";
 
 #Setting up connection
 $host = '127.0.0.1:3307';
@@ -30,9 +49,9 @@ try
 
     $stmt = $pdo->prepare($query);
 
-    $stmt->bindParam(":CPF", $cpf);
     $stmt->bindParam(":NOME", $nome);
-    $stmt->bindParam(":IDADE", $idade);
+    $stmt->bindParam(":AUTOR", $autor);
+    $stmt->bindParam(":CLIENTE", $genero);
 
     $stmt->execute();
 

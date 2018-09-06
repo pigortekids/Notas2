@@ -9,13 +9,11 @@ $body = trim($body);
 $obj = json_decode($body,true);
 
 #Setting up variables
-$id_cleinte = $obj["id_cliente"];
+$id_cliente = $obj["id_cliente"];
 $id_livro = $obj["id_livro"];
-$dia_aluguel = $obj["dia_aluguel"];
-$dia_devolucao = $obj["dia_devolucao"];
 
 #Creating query
-$query = "INSERT INTO tbl_aluguel(id_cliente, id_livro, dia_aluguel, dia_devolucao) VALUES (:ID_CLIENTE, :ID_LIVRO, FROM_UNIXTIME(:DIA_ALUGUEL), FROM_UNIXTIME(:DIA_DEVOLUCAO));";
+$query = "DELETE FROM tbl_aluguel WHERE (id_cliente = :ID_CLIENTE AND id_livro = :ID_LIVRO)";
 
 #Setting up connection
 $host = '127.0.0.1:3307';
@@ -31,10 +29,8 @@ try
 
     $stmt = $pdo->prepare($query);
 
-    $stmt->bindParam(":ID_CLIENTE", $id_cleinte);
+    $stmt->bindParam(":ID_CLIENTE", $id_cliente);
     $stmt->bindParam(":ID_LIVRO", $id_livro);
-    $stmt->bindParam(":DIA_ALUGUEL", $dia_aluguel);
-    $stmt->bindParam(":DIA_DEVOLUCAO", $dia_devolucao);
 
     $stmt->execute();
 
