@@ -1,6 +1,7 @@
 Xampp
 \xampp\htdocs
 localhost ou 127.0.0.1
+localhost/...
 
 postman para mandar um POST com JSON
 
@@ -10,7 +11,8 @@ mdm.status code list
 
 .php?nome=exemplo
 
-
+pasta app para seus códigos
+pasta vendor para código de terceiros
 
 
 
