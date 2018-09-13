@@ -1,0 +1,116 @@
+L I V R O
+CADASTRA
+{
+
+	"objeto":"Livro",
+
+	"funcao":"cadastra",
+
+	"nome":"Livro",
+
+	"autor":"Igones",
+	"genero":"coisaLinda"
+
+}
+ALTERA
+{
+
+	"objeto":"Livro",
+
+	"funcao":"altera",
+
+	"id_livro":1,
+
+	"nome":"CHAMA",
+
+	"autor":"Igones",
+
+	"genero":"coisaLinda"
+
+}
+DELETA
+{
+
+	"objeto":"Livro",
+
+	"funcao":"deleta",
+
+	"id_livro":1
+
+}
+
+
+
+C L I E N T E
+CADASTRA
+{
+
+	"objeto":"Cliente",
+
+	"funcao":"cadastra",
+
+	"nome":"Leo",
+
+	"idade":21,
+
+	"cpf":"222.222.222-22"
+
+}
+ALTERA
+{
+	
+	"objeto":"Cliente",
+
+	"funcao":"altera",
+
+	"id_cliente":1,
+
+	"nome":"NOME",
+
+	"idade":2,
+
+	"cpf":"222.222.222-22"
+
+}
+DELETA
+{
+
+	"objeto":"Cliente",
+
+	"funcao":"deleta",
+
+	"id_cliente":1
+
+}
+
+
+A L U G U E L
+ALUGA
+{
+
+	"objeto":"Aluguel",
+
+	"funcao":"aluga",
+
+	"id_cliente":2,
+
+	"id_livro":2,
+
+	"dia_aluguel":"2008-9-11",
+	"dia_devolucao":"2008-9-11"
+
+}
+ADIA DEVOLUCAO
+{
+
+	"objeto":"Aluguel",
+
+	"funcao":"devolve",
+
+	"id_cliente":4,
+
+	"id_livro":3,
+
+	"dia_devolucao":"2008-9-11"
+
+}
