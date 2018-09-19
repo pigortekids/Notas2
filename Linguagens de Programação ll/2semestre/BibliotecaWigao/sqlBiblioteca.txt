@@ -1,7 +1,7 @@
 CREATE DATABASE biblioteca;
 
-CREATE TABLE `biblioteca`.`tbl_cliente` ( `id_cliente` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(50) NOT NULL , `idade` INT NOT NULL , `cpf` TEXT NOT NULL , PRIMARY KEY (`id_cliente`)) ENGINE = InnoDB;
+CREATE TABLE tbl_cliente ( `id_cliente` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(50) NOT NULL , `idade` INT NOT NULL , `cpf` TEXT NOT NULL , PRIMARY KEY (`id_cliente`)) ENGINE = InnoDB;
 
-CREATE TABLE `biblioteca`.`tbl_livro` ( `id_livro` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(50) NOT NULL , `autor` VARCHAR(50) NOT NULL , `genero` VARCHAR(50) NOT NULL , PRIMARY KEY (`id_livro`)) ENGINE = InnoDB;
+CREATE TABLE tbl_livro ( `id_livro` INT NOT NULL AUTO_INCREMENT , `nome` VARCHAR(50) NOT NULL , `autor` VARCHAR(50) NOT NULL , `genero` VARCHAR(50) NOT NULL , PRIMARY KEY (`id_livro`)) ENGINE = InnoDB;
 
-CREATE TABLE `biblioteca`.`tbl_aluguel` ( `id_cliente` INT NOT NULL , `id_livro` INT NOT NULL , `dia_aluguel` DATE NOT NULL , `dia_devolucao` DATE NOT NULL , PRIMARY KEY (`id_cliente`, `id_livro`)) ENGINE = InnoDB;
+CREATE TABLE tbl_aluguel ( `id_cliente` INT NOT NULL , `id_livro` INT NOT NULL , `dia_aluguel` DATE NOT NULL , `dia_devolucao` DATE NOT NULL , PRIMARY KEY (`id_cliente`, `id_livro`)) ENGINE = InnoDB;
