@@ -1,0 +1,12 @@
+{
+
+"objeto":"Livro",
+
+"funcao":"cadastra",
+
+"nome":"Livro",
+
+"autor":"Igones",
+"genero":"coisaLinda"
+
+}

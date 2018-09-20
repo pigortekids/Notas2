@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TOP VIAGENS</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+
+    <!-- Douglas -->
+    <div id="sectionTeste">
+        <button type="button" id="botaumTeste">ASSINE</button>
+        <label id="">GG</label>
+    </div>
+
+    <script>
+        //window.alert(5+6);
+        document.getElementById("botaumTeste").addEventListener("click", funcao);
+
+        /*function myFunction() {
+            document.getElementById("botaumTeste").innerHTML = "YOU CLICKED ME!";
+        }*/
+        document.getElementById("wb_element_instance4").addEventListener("click", funcao);
+
+        function funcao(){
+            var xmlhttp = new XMLHttpRequest();
+            var url = "myTutorials.txt";
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    myFunction(myArr);
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function myFunction(arr) {
+            var out = "";
+            var i;
+            for(i = 0; i < arr.length; i++) {
+                out += '<a href="' + arr[i].url + '">' + 
+                arr[i].display + '</a><br>';
+            }
+            document.getElementById("wb_element_instance2").innerHTML = out;
+        }
+        
+    </script>
+
+</body>
+</html>
