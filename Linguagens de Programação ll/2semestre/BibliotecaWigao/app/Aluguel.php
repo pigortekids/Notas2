@@ -19,7 +19,7 @@ class Aluguel{
     public function aluga($pdo){
 
         #Creating query
-        $query = "INSERT INTO tbl_aluguel (id_cliente, id_livro, dia_aluguel) VALUES (:CLIENTE, :LIVRO, :ALUGUEl)";
+        $query = "INSERT INTO tbl_aluguel (id_cliente, id_livro, dia_aluguel, dia_devolucao) VALUES (:CLIENTE, :LIVRO, :ALUGUEL, :DEVOLUCAO)";
 
         try 
             {
@@ -28,6 +28,7 @@ class Aluguel{
             $stmt->bindParam(":CLIENTE", $this->id_cliente);
             $stmt->bindParam(":LIVRO", $this->id_livro);
             $stmt->bindParam(":ALUGUEL", $this->dia_aluguel);
+            $stmt->bindParam(":DEVOLUCAO", $this->dia_devolucao);
 
             $stmt->execute();
 
