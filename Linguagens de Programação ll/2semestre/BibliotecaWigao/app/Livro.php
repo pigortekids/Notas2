@@ -88,6 +88,29 @@ class Livro{
 
     }
 
+    public function deleta($pdo){
+
+        #Creating query
+        $query = "SELECT nome, autor, genero FROM tbl_livro";
+        https://www.w3schools.com/Php/php_mysql_select.asp
+        try 
+            {
+            $stmt = $pdo->prepare($query);
+
+            $stmt->bindParam(":ID", $this->id_livro);
+
+            $stmt->execute();
+
+            http_response_code(201);
+
+            }
+        catch(PDOException $e)
+            {
+            echo $query."<br>".$e->getMessage();
+            }
+
+    }
+
     public function getNome(){
         return $this->nome;
     }
