@@ -70,6 +70,10 @@ try {
             $livro = new Livro("","","",$id_livro);
             $livro->deleta($pdo);
         }
+        elseif($funcao == 'consulta'){
+            $livro = new Livro("","","","");
+            $livro->consulta($pdo);
+        }
     }
     elseif ($objeto == 'Aluguel'){
         require_once "app/Aluguel.php";

@@ -51,8 +51,32 @@
             }
             document.getElementById("wb_element_instance2").innerHTML = out;
         }
+
+        document.getElementById("wb_element_instance4").addEventListener("click", funcao);
+
+        function funcao(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "testeBase.txt", true);
+            xhttp.send();
+        }
         
     </script>
 
 </body>
 </html>
+
+
+
+$stmt->bindParam(":AUTOR", "Lalala");
+        $stmt->bindParam(":GENERO", "TESTE");
+        echo("batata");
+        $stmt->execute();
+        http_response_code(201);
+
+
+        

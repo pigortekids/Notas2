@@ -88,27 +88,41 @@ class Livro{
 
     }
 
-    public function deleta($pdo){
-
+    public function consulta($pdo){
         #Creating query
-        $query = "SELECT nome, autor, genero FROM tbl_livro";
-        https://www.w3schools.com/Php/php_mysql_select.asp
+        $query = "SELECT * FROM tbl_livro";
+
         try 
             {
             $stmt = $pdo->prepare($query);
 
-            $stmt->bindParam(":ID", $this->id_livro);
-
             $stmt->execute();
 
-            http_response_code(201);
+            $jaison = "[";
+            $contador = 0;
+            while ($row = $stmt->fetch()) {
+                if ($contador == 0){
+                    $jaison = $jaison."{";
+                }
+                else{
+                    $jaison = $jaison.",{";
+                }
+                $jaison = $jaison."\"nome\":\"".$row['nome']."\",";
+                $jaison = $jaison."\"autor\":\"".$row['autor']."\",";
+                $jaison = $jaison."\"genero\":\"".$row['genero']."\"";
+                $jaison = $jaison."}";
+                $contador += 1;
+            }
+            $jaison = $jaison."]";
+            echo $jaison;
+
+            http_response_code(200);
 
             }
         catch(PDOException $e)
             {
             echo $query."<br>".$e->getMessage();
             }
-
     }
 
     public function getNome(){
