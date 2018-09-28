@@ -107,6 +107,7 @@ class Livro{
                 else{
                     $jaison = $jaison.",{";
                 }
+                $jaison = $jaison."\"id_livro\":\"".$row['id_livro']."\",";
                 $jaison = $jaison."\"nome\":\"".$row['nome']."\",";
                 $jaison = $jaison."\"autor\":\"".$row['autor']."\",";
                 $jaison = $jaison."\"genero\":\"".$row['genero']."\"";
