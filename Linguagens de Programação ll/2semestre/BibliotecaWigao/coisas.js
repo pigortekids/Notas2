@@ -48,34 +48,10 @@ document.getElementById("wb_element_instance8").addEventListener("click", functi
 
 });
 
-document.getElementById("wb_element_instance18").querySelectorAll("tr")[4].addEventListener("click", function(){
+document.getElementById("wb_element_instance11").querySelectorAll("tr")[4].addEventListener("click", function(){
 
-    var coisa = "[{\"nome\":\"Igor\", \"autor\":\"Igor\", \"genero\":\"Igor\"},{\"nome\":\"Igor\", \"autor\":\"Igor\", \"genero\":\"Igor\"}]";
-    var jaison = JSON.parse(coisa);
-    var tabela = document.getElementById("wb_element_instance10").querySelectorAll(".wb_table")[0];
-    while (tabela.rows.length > 1){
-        tabela.deleteRow(-1);
-    }
-    for (i in jaison){
-        var linha = tabela.insertRow(-1);
-        var celula0 = linha.insertCell(0);
-        var celula1 = linha.insertCell(1);
-        var celula2 = linha.insertCell(2);
-        var celula3 = linha.insertCell(3);
-
-        var texto0  = document.createTextNode(jaison[i]["nome"]);
-        var texto1  = document.createTextNode(jaison[i]["autor"]);
-        var texto2  = document.createTextNode(jaison[i]["genero"]);
-        var butaum = document.createElement('input');
-        butaum.setAttribute('type', 'button');
-        butaum.setAttribute('value', 'Alugar');
-        butaum.setAttribute('onclick', 'alugar(i)');
-
-        celula0.appendChild(texto0);
-        celula1.appendChild(texto1);
-        celula2.appendChild(texto2);
-        celula3.appendChild(butaum);
-    }
+    var resposta = prompt("Insira seu nome", "Nome");
+    console.log(resposta);
 
 });
 

@@ -88,6 +88,45 @@ class Cliente{
 
     }
 
+    public function procura($pdo){
+        #Creating query
+        $query = "SELECT tbl_livro.nome, tbl_aluguel.dia_aluguel, tbl_aluguel.dia_devolucao FROM tbl_aluguel, tbl_livro, tbl_cliente WHERE (tbl_cliente.nome LIKE '%".$this->nome."%' AND tbl_aluguel.id_cliente = tbl_cliente.id_cliente AND tbl_livro.id_livro = tbl_aluguel.id_livro)";
+
+        try 
+            {
+            $stmt = $pdo->prepare($query);
+
+            $stmt->bindParam(":NOME", $this->nome);
+
+            $stmt->execute();
+
+            $jaison = "[";
+            $contador = 0;
+            while ($row = $stmt->fetch()) {
+                if ($contador == 0){
+                    $jaison = $jaison."{";
+                }
+                else{
+                    $jaison = $jaison.",{";
+                }
+                $jaison = $jaison."\"nome\":\"".$row['nome']."\",";
+                $jaison = $jaison."\"dia_aluguel\":\"".$row['dia_aluguel']."\",";
+                $jaison = $jaison."\"dia_devolucao\":\"".$row['dia_devolucao'];
+                $jaison = $jaison."}";
+                $contador += 1;
+            }
+            $jaison = $jaison."]";
+            echo $jaison;
+
+            http_response_code(201);
+
+            }
+        catch(PDOException $e)
+            {
+            echo $query."<br>".$e->getMessage();
+            }
+    }
+
     public function getNome(){
         return $this->nome;
     }

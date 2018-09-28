@@ -20,7 +20,7 @@ $funcao = $obj["funcao"];
 #Conect into DataBase
 require_once "app/DAO.php";
 try {
-    $con = new DAO('localhost', 'biblioteca', 'utf8mb4', 'root', '');
+    $con = new DAO('localhost', 'id7019223_biblioteca', 'utf8mb4', 'root', '');
     $pdo = new PDO($con->getDns(), $con->getUser(), $con->getPassword());
 
     if ($objeto == 'Cliente'){
@@ -45,6 +45,11 @@ try {
             $id_cliente = $obj["id_cliente"];
             $cliente = new Cliente("","","",$id_cliente);
             $cliente->deleta($pdo);
+        }
+        elseif ($funcao == 'procura'){
+            $nome = $obj["nome"];
+            $cliente = new Cliente($nome,"","","");
+            $cliente->procura($pdo);
         }
     }
     elseif ($objeto == 'Livro'){
