@@ -20,7 +20,7 @@ $funcao = $obj["funcao"];
 #Conect into DataBase
 require_once "app/DAO.php";
 try {
-    $con = new DAO('localhost', 'id7019223_biblioteca', 'utf8mb4', 'root', '');
+    $con = new DAO('localhost', 'biblioteca', 'utf8mb4', 'root', '');
     $pdo = new PDO($con->getDns(), $con->getUser(), $con->getPassword());
 
     if ($objeto == 'Cliente'){
@@ -82,18 +82,12 @@ try {
     }
     elseif ($objeto == 'Aluguel'){
         require_once "app/Aluguel.php";
-        $id_cliente = $obj["id_cliente"];
-        $id_livro = $obj["id_livro"];
-        $dia_devolucao = $obj["dia_devolucao"];
         #Checking function
         if ($funcao == 'aluga'){
-            $dia_aluguel = $obj["dia_aluguel"];
-            $aluguel = new Aluguel($id_cliente, $id_livro, $dia_aluguel, $dia_devolucao);
-            $aluguel->aluga($pdo);
-        }
-        elseif ($funcao == 'adiaDevolucao'){
-            $aluguel = new Aluguel($id_cliente, $id_livro, "", $dia_devolucao);
-            $aluguel->adiaDevolucao($pdo);
+            $id_livro = $obj["id_livro"];
+            $nome = $obj["nome"];
+            $aluguel = new Aluguel("", $id_livro, "", "");
+            $aluguel->aluga($pdo, $nome);
         }
     }
 
