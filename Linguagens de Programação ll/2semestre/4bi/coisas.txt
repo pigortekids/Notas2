@@ -1,0 +1,18 @@
+https://www.slimframework.com/
+composer
+
+instalação -- > composer require slim/slim "^3.0" no caminho do projeto
+para testar --> http://localhost/pasta/public/index.php/hello/thiago
+
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+EDITAR ASSIM:
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/pasta/public"
+    ServerName igones.com
+</VirtualHost>
+
+C:\Windows\System32\drivers\etc\hosts
+EDITAR ASSIM:
+127.0.0.1 igones.com
+
+para testar 2.0 --> http://igones.com/index.php/hello/thiago
