@@ -1,7 +1,8 @@
 https://www.slimframework.com/
 composer
 
-instalação -- > composer require slim/slim "^3.0" no caminho do projeto
+instalação -- > composer require slim/slim "^3.0" no caminho do projeto pelo git bash
+coloca todos os codigos do htaccess e do teste do site
 para testar --> http://localhost/pasta/public/index.php/hello/thiago
 
 C:\xampp\apache\conf\extra\httpd-vhosts.conf
@@ -16,3 +17,5 @@ EDITAR ASSIM:
 127.0.0.1 igones.com
 
 para testar 2.0 --> http://igones.com/index.php/hello/thiago
+
+confeitaria-api <-- git do Tiago
