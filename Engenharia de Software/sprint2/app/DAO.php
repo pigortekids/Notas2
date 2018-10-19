@@ -1,29 +1,23 @@
-<?php
+<?php 
 
 namespace app;
 
+use \PDO;
+
 class DAO{
-
-    private $dsn;
-    private $user;
-    private $pass;
-
-    public function __construct($host, $db, $charset, $user, $pass){
-        $this->dns = "mysql:host=$host;dbname=$db;charset=$charset";
-        $this->user = $user;
-        $this->pass = $pass;
-    }
-
-    public function getDns(){
-        return $this->dns;
-    }
-
-    public function getUser(){
-        return $this->user;
-    }
-
-    public function getPassword(){
-        return $this->pass;
-    }
-
+	private $nomeServer;
+	private $usuario;
+	private $senha;
+	private $dataBase;
+    private $charset;
+    public 	$con;
+	function __construct() {
+		$this->nomeServer = "localhost";
+		$this->usuario = "root";
+		$this->senha = "";
+        $this->dataBase = "celulares";
+        $this->charset = 'utf8mb4';
+        $dsn = "mysql:host=$this->nomeServer;dbname=$this->dataBase;charset=$this->charset";
+        $this->con = new PDO($dsn, $this->usuario, $this->senha);
+	}
 }

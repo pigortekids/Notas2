@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SPRINT 2</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estiloPg2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body onload="carregaCelular()">
+
+    <!--
+    <table class="table" id="tabela">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th>Fabricante</th> 
+            <th>Preço a vista</th>
+            <th>Sem juros</th>
+            <th>Total sem juros</th>
+            <th>Processador</th>
+            <th>Tamanho da tela</th>
+            <th>Peso</th>
+            <th>Bateria</th>
+            <th>Memoria</th>
+            <th>Memoria RAM</th>
+        </tr>
+    </thead>
+    </table>
+    -->
+
+    <div class="container">
+    <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+        <div class="card" style="width: 19rem;">
+            <!--<img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">-->
+            <div class="card-body">
+                <h5 class="card-title" id="nome"></h5>
+                <p class="card-text" id="fabricante"></p>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                    <blockquote class="blockquote mb-0">
+                        <p>Preços</p>
+                        <footer class="blockquote-footer">Preco a vista <cite title="Source Title" id="aVista"></cite></footer>
+                        <footer class="blockquote-footer">Sem juros <cite title="Source Title" id="semJuros"></cite></footer>
+                        <footer class="blockquote-footer">Total sem juros <cite title="Source Title" id="semJurosTotal"></cite></footer>
+                    </blockquote>
+                    </li>
+                    <li class="list-group-item" id="processador"></li>
+                    <li class="list-group-item" id="tela"></li>
+                    <li class="list-group-item" id="peso"></li>
+                    <li class="list-group-item" id="bateria"></li>
+                    <li class="list-group-item" id="memoria"></li>
+                    <li class="list-group-item" id="ram"></li>
+                </ul>
+                <div class="row justify-content-md-center" style="padding: 8px 0px 0px 0px">
+                    <div class="col-md-auto">
+                        <button type="button" class="btn btn-secondary" style="width: 12rem;" onclick="voltaPaginaInicial()">Voltar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="js/coisasPg2.js" type="text/javascript"></script>
+</body>
+</html>

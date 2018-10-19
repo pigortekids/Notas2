@@ -1,7 +1,6 @@
 <?php
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use app\DAO;
 use app\Celular;
 
 require '../vendor/autoload.php';
@@ -10,15 +9,10 @@ $app = new \Slim\App;
 
 $app->get('/celular', function (Request $request, Response $response, array $args) {
     
-    require_once "../app/DAO.php";
     try {
-        
-        $con = new DAO('localhost', 'celulares', 'utf8mb4', 'root', '');
-        $pdo = new PDO($con->getDns(), $con->getUser(), $con->getPassword());
-
         require_once "../app/Celular.php";
         $celular = new Celular();
-        $resultado = $celular->selecionaTudo($pdo);
+        $resultado = $celular->selecionaTudo();
         $response->getBody()->write($resultado);
 
         http_response_code(201);
@@ -32,20 +26,15 @@ $app->get('/celular', function (Request $request, Response $response, array $arg
 
 });
 
-$app->get('/celular/{id}', function (Request $request, Response $response, array $args) {
+$app->get('/celular/{nome}', function (Request $request, Response $response, array $args) {
 
-    $id_celular = $args['id'];
+    $nome = $args['nome'];
     
-    require_once "../app/DAO.php";
     try {
-        
-        $con = new DAO('localhost', 'celulares', 'utf8mb4', 'root', '');
-        $pdo = new PDO($con->getDns(), $con->getUser(), $con->getPassword());
-
         require_once "../app/Celular.php";
-        $celular = new Celular($id_celular);
-        $resultado = $celular->selecionaPorId($pdo);
-        $response->getBody()->write($resultado);
+        $celular = new Celular();
+        $celular->selecionaPorNome($nome);
+        $response->getBody()->write(json_encode($celular));
 
         http_response_code(201);
     }

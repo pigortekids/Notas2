@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #e84118;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
