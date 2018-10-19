@@ -1,0 +1,14 @@
+https://ubidots.com/education/
+conta com email da maua
+
+https://ubidots.com/docs/hw/#introduction
+https://ubidots.com/docs/sw/
+
+POST
+things.ubidots.com/api/devices/{DEVICE_LABEL}?token=TOKEN
+GET
+things.ubidots.com/api/v1.6/devices/my-device/my-variable/values/lv
+
+pip3 install requests
+
+https://help.ubidots.com/connect-your-devices/connect-the-raspberry-pi-with-ubidots
