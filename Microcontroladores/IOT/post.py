@@ -4,13 +4,13 @@ import math
 import random
 
 TOKEN = "A1E-7zV8p1hymWCoJHXk1P3wGXtC7sTPeu"  # Put your TOKEN here
-DEVICE_LABEL = "Batata"  # Put your device label here 
-VARIABLE_LABEL_1 = "var"  # Put your first variable label here
+DEVICE_LABEL = "raspberry"  # Put your device label here 
+VARIABLE1 = "Temperatura"  # Put your first variable label here
 
 
-def build_payload(variable_1, variable_2, variable_3):
+def build_payload(variable_1):
     # Creates two random values for sending data
-    value_1 = random.randint(10, 29)
+    value_1 = random.randint(10, 29) #range da temperatura
     payload = {variable_1: value_1}
 
     return payload
@@ -42,7 +42,7 @@ def post_request(payload):
 
 
 def main():
-    payload = build_payload(VARIABLE_LABEL_1)
+    payload = build_payload(VARIABLE1)
 
     print("[INFO] Attemping to send data")
     post_request(payload)

@@ -12,3 +12,6 @@ things.ubidots.com/api/v1.6/devices/my-device/my-variable/values/lv
 pip3 install requests
 
 https://help.ubidots.com/connect-your-devices/connect-the-raspberry-pi-with-ubidots
+
+SENSOR DHT11 (temperatura e pressao)
+SENSOR LDR (luminosidade) (https://robozera.com/2017/01/05/sensor-de-luz-ldr-raspberry-pi/)
