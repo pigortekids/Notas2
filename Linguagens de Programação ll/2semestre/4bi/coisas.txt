@@ -3,7 +3,7 @@ composer
 
 instalação -- > composer require slim/slim "^3.0" no caminho do projeto pelo git bash
 coloca todos os codigos do htaccess e do teste do site
-para testar --> http://localhost/pasta/public/index.php/hello/thiago
+para testar --> http://localhost/biblioteca/public/index.php/hello/thiago
 
 C:\xampp\apache\conf\extra\httpd-vhosts.conf
 EDITAR ASSIM:

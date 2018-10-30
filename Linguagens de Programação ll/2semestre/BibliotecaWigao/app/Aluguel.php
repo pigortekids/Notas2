@@ -19,7 +19,7 @@ class Aluguel{
     public function aluga($pdo, $nome){
 
         #Creating query
-        $query = "INSERT INTO tbl_aluguel SELECT tbl_cliente.id_cliente, :ID_LIVRO, :ALUGUEL, :DEVOLUCAO FROM tbl_cliente WHERE tbl_cliente.nome LIKE '%".$nome."%';
+        $query = "INSERT INTO tbl_aluguel SELECT tbl_cliente.id_cliente, :ID_LIVRO, :ALUGUEL, :DEVOLUCAO FROM tbl_cliente WHERE tbl_cliente.nome LIKE '%".$nome."%'";
 
         try 
             {
