@@ -2,20 +2,38 @@ import requests
 import random
 import time
 import math
+from gpiozero import LightSensor
+import RPi.GPIO as GPIO
+import Adafruit_DHT
 
 TOKEN = "A1E-7zV8p1hymWCoJHXk1P3wGXtC7sTPeu"
 DEVICE = "raspberry"
 VARIABLE0 = "Controlador"
-VARIABLE1 = "Temperatura"
-VARIABLE2 = "Luminosidade"
+VARIABLE1 = "Umidade"
+VARIABLE2 = "Temperatura"
+VARIABLE3 = "Luminosidade"
 DELAY = 5
 
+#ldr
+ldr = LightSensor(4)
+
+#pwm
+led_pin = 21
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led_pin, GPIO.OUT)
+pwm = GPIO.PWM(led_pin, 100)
+pwm.start(0)
+
+#dth11
+sensor = Adafruit_DHT.DHT11
+pino_sensor = 25
+
 ###############GET################
-def build_payload(variable_1, variable_2):
+def build_payload(variable_1, variable_2, variable_3):
     # Creates two random values for sending data
-    value_1 = random.randint(10, 29) #range da temperatura
-    value_2 = random.randint(0, 100) #range da luminosidade
-    payload = {variable_1: value_1, variable_2: value_2}
+    value_1, value_2 = Adafruit_DHT.read_retry(sensor, pino_sensor); #umidade e temperatura
+    value_3 = ldr.value * 100 #luminosidade
+    payload = {variable_1: value_1, variable_2: value_2, variable_3: value_3}
 
     return payload
 ##################################
@@ -60,15 +78,18 @@ def get_var(device, variable):
 #MAIN
 if __name__ == "__main__":
     while True:
-        #POST
-        payload = build_payload(VARIABLE1, VARIABLE2)
+        #POST jogando os valores pra web
+        payload = build_payload(VARIABLE1, VARIABLE2, VARIABLE3)
 
         print("Acessando...")
         post_request(payload)
         print("Completo")
         
-        #GET
-        print(get_var(DEVICE, VARIABLE0))
+        #GET passando o valor pro pwm
+        pwm.ChangeDutyCycle(get_var(DEVICE, VARIABLE0))
         
         #DELAY
         time.sleep(DELAY)
+
+    pwm.stop()
+    GPIO.cleanup()
