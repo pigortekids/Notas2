@@ -95,25 +95,17 @@ class Controller
         try {
             $objEntrada = $request->getParsedBody();
 
-            if (!( isset( $objEntrada["nome"] ) &&
-            isset( $objEntrada["idade"] ) &&
-            isset( $objEntrada["cpf"])))
+            if (!( isset( $objEntrada["id_livro"] ) &&
+            isset( $objEntrada["nome_cliente"]))){
                 throw new BadHttpRequest();
+            }
 
-            if ( is_null($objEntrada) )
+            if ( is_null($objEntrada) ){
                 throw new BadHttpRequest();
+            }
 
-            //Descrição é opcional, então caso não tenha sido passada será substituida por ""
-            //$desc = (!\is_null($objEntrada["descricao"])) ? $objEntrada["descricao"] : "";
-
-            $arrayCliente = array( "nome"=>$objEntrada["nome"],
-                                "idade"=>$objEntrada["idade"],
-                                "cpf"=>$objEntrada["cpf"]);
-                                //"descricao"=> $desc);
-
-            $cliente = new Cliente($arrayCliente);
-            $dao = new ClienteDAO();
-            $dao->createCliente( $cliente );
+            $dao = new AluguelDAO();
+            $dao->cadastraAluguel( $objEntrada["id_livro"], $objEntrada["nome_cliente"] );
         } catch (BadHttpRequest $e) {
             $status = 400;
             $response->write('Exceção capturada: '.  $e->errorMessage(). '\n');

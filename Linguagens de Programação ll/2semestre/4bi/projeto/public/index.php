@@ -33,7 +33,7 @@ $app->group('/v1',function ( ) {
         return $controlador->getAlugueis($request, $response, $args);
     });
 
-    $this->post('/aluguel/{nomeCliente}', function (Request $request, Response $response, array $args) {
+    $this->post('/aluguel', function (Request $request, Response $response, array $args) {
         $controlador = new Controller();
         return $controlador->cadastraAluguel($request, $response, $args);
     });

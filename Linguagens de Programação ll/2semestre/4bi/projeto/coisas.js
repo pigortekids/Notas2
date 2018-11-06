@@ -69,6 +69,25 @@ document.getElementById("butaumLivros").addEventListener("click", function(){
 
 });
 
+function alugar(id_livro){
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            
+        }
+    };
+
+    var resposta = prompt("Insira seu nome");
+    jaison = {
+        "id_livro":id_livro,
+        "nome_cliente":resposta
+    };
+    xhttp.open("POST", "http://localhost/biblioteca/public/v1/aluguel");
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(jaison));
+}
+
 document.getElementById("butaumAlugueis").addEventListener("click", function(){
 
     var xhttp = new XMLHttpRequest();
