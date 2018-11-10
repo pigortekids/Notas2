@@ -1,0 +1,2 @@
+nomes: http://www.wjr.eti.br/nameGenerator/
+numeros: https://www.invertexto.com/numeros-aleatorios
