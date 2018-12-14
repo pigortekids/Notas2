@@ -1,0 +1,8 @@
+9 valores de todas as casas da esquerda para direita
+	e de cima para baixo e decimo valor sendo a casa que deve-se jogar (0 a 8)
+categoria das casas:
+0 -> casa vazia
+1 -> casa com seu valor
+2 -> casa com valor do inimigo
+
+coloquei 10 exemplos de cada uma das diferentes quantidades de casas preenchidas

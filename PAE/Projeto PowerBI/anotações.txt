@@ -1,0 +1,7 @@
+Igor Correa - 15.00588-7
+Sophia Bernardi - 15.02764-3
+Nicholas Pur - 15.00589-5
+
+Fizemos um banco de dados com informações de uma biblioteca com clientes, livros e alugueis.
+No primeiro dashboard fizemos três graficos de coluna analisando a quantidade de livros alugados por gênero, estado e idade.
+No segundo dashboard fizemos uma análise usando tabelas para utilizar outras ferramentas de análise.
